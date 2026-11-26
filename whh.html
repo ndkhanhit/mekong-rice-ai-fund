@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WHH Seeding The Future Proposal — Mekong Rice AI (Review Copy)</title>
+  <title>WHH Seeding The Future Proposal — Mekong Rice AI (Final Submission Dossier)</title>
   <style>
     :root {
       --primary: #0f4c5c;
@@ -11,8 +11,6 @@
       --primary-soft: #e6f4f7;
       --green: #15803d;
       --green-soft: #dcfce7;
-      --accent: #b45309;
-      --accent-soft: #fef3c7;
       --text: #1f2937;
       --muted: #4b5563;
       --border: #d1d5db;
@@ -31,7 +29,6 @@
       font-size: 15px;
     }
 
-    /* Top review toolbar */
     .toolbar {
       position: sticky;
       top: 0;
@@ -72,6 +69,7 @@
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
+      text-decoration: none;
     }
     .btn:hover { background: rgba(255,255,255,0.22); }
     .btn-primary {
@@ -81,7 +79,6 @@
     }
     .btn-primary:hover { background: #7dd3fc; }
 
-    /* Layout */
     .layout {
       max-width: 1240px;
       margin: 24px auto 48px;
@@ -92,7 +89,6 @@
       align-items: start;
     }
 
-    /* Sidebar */
     .toc {
       position: sticky;
       top: 72px;
@@ -125,18 +121,13 @@
       padding: 5px 8px;
       border-radius: 6px;
     }
-    .toc a:hover {
-      background: var(--primary-soft);
-      color: var(--primary);
-      font-weight: 600;
-    }
+    .toc a:hover { background: var(--primary-soft); color: var(--primary); font-weight: 600; }
     .toc-divider {
       margin: 10px 0 6px;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--primary-light);
-      letter-spacing: 0.5px;
     }
     .toc-note {
       margin-top: 14px;
@@ -146,13 +137,34 @@
       color: var(--muted);
     }
 
-    /* Main paper */
     .paper {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 40px 48px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .brand-left { display: flex; align-items: center; gap: 14px; }
+    .brand-logo { height: 52px; width: auto; border-radius: 8px; object-fit: contain; }
+    .brand-meta { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+    .brand-meta strong { color: #0a3642; font-size: 14px; }
+    .status-pill {
+      background: var(--green-soft);
+      color: var(--green);
+      border: 1px solid #86efac;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
     }
 
     .doc-header {
@@ -168,17 +180,8 @@
       color: var(--primary-light);
       margin-bottom: 8px;
     }
-    h1 {
-      margin: 0 0 8px;
-      font-size: 26px;
-      line-height: 1.25;
-      color: #0a3642;
-    }
-    .subtitle {
-      margin: 0 0 16px;
-      font-size: 14.5px;
-      color: var(--muted);
-    }
+    h1 { margin: 0 0 8px; font-size: 25px; line-height: 1.25; color: #0a3642; }
+    .subtitle { margin: 0 0 16px; font-size: 14px; color: var(--muted); }
 
     .stats-grid {
       display: grid;
@@ -191,18 +194,8 @@
       border-radius: 10px;
       padding: 12px 14px;
     }
-    .stat-label {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--primary);
-    }
-    .stat-value {
-      font-size: 16px;
-      font-weight: 800;
-      color: #0a3642;
-      margin-top: 3px;
-    }
+    .stat-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--primary); }
+    .stat-value { font-size: 16px; font-weight: 800; color: #0a3642; margin-top: 3px; }
     .stat-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
     .part-banner {
@@ -210,15 +203,15 @@
       color: #fff;
       padding: 10px 16px;
       border-radius: 8px;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 700;
       letter-spacing: 0.4px;
       text-transform: uppercase;
-      margin: 30px 0 18px;
+      margin: 28px 0 18px;
     }
 
     h2 {
-      margin: 28px 0 12px;
+      margin: 26px 0 12px;
       padding-bottom: 6px;
       border-bottom: 2px solid #e5e7eb;
       font-size: 18px;
@@ -229,20 +222,39 @@
     ul, ol { margin: 0 0 14px; padding-left: 22px; }
     li { margin-bottom: 6px; }
 
-    .callout-review {
-      background: #fffbeb;
-      border-left: 4px solid #d97706;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      margin: 16px 0 22px;
-      font-size: 14px;
+    .meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-size: 13.8px;
     }
+    .meta-table th {
+      width: 28%;
+      text-align: left;
+      background: #f9fafb;
+      color: #374151;
+      font-weight: 700;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+    }
+    .meta-table td { padding: 8px 12px; border: 1px solid var(--border); }
 
-    /* Portal question cards */
+    .domains-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 14px 0 22px;
+    }
+    .domain-pill { border-radius: 10px; padding: 14px; border: 1px solid #cbd5e1; font-size: 13px; }
+    .d1 { background: #ecfdf5; border-color: #86efac; }
+    .d2 { background: #eff6ff; border-color: #93c5fd; }
+    .d3 { background: #fff7ed; border-color: #fdba74; }
+    .domain-pill strong { display: block; margin-bottom: 5px; font-size: 13.5px; }
+
     .q-card {
       border: 1px solid #cbd5e1;
       border-radius: 10px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       overflow: hidden;
       background: #fff;
       scroll-margin-top: 76px;
@@ -257,16 +269,8 @@
       gap: 10px;
       flex-wrap: wrap;
     }
-    .q-title {
-      font-weight: 700;
-      font-size: 14.5px;
-      color: #0f172a;
-    }
-    .q-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .q-title { font-weight: 700; font-size: 14.3px; color: #0f172a; }
+    .q-meta { display: flex; align-items: center; gap: 8px; }
     .wc-badge {
       background: var(--green-soft);
       color: var(--green);
@@ -287,47 +291,9 @@
       cursor: pointer;
     }
     .copy-btn:hover { background: var(--primary-soft); color: var(--primary); border-color: var(--primary-light); }
-    .q-body {
-      padding: 14px 18px;
-      font-size: 14.8px;
-    }
+    .q-body { padding: 14px 18px; font-size: 14.7px; }
     .q-body p:last-child, .q-body ul:last-child { margin-bottom: 0; }
 
-    /* 3 Domains visual strip */
-    .domains-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin: 14px 0 22px;
-    }
-    .domain-pill {
-      border-radius: 10px;
-      padding: 14px;
-      border: 1px solid #cbd5e1;
-      font-size: 13px;
-    }
-    .d1 { background: #ecfdf5; border-color: #86efac; }
-    .d2 { background: #eff6ff; border-color: #93c5fd; }
-    .d3 { background: #fff7ed; border-color: #fdba74; }
-    .domain-pill strong { display: block; margin-bottom: 5px; font-size: 13.5px; }
-
-    /* Confirm tag */
-    .confirm {
-      background: var(--accent-soft);
-      color: #92400e;
-      border: 1px dashed #d97706;
-      padding: 1px 6px;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 0.94em;
-    }
-    body.focus-confirm .confirm {
-      background: #fde047;
-      color: #713f12;
-      box-shadow: 0 0 0 2px #f59e0b;
-    }
-
-    /* Tables */
     table.data-table {
       width: 100%;
       border-collapse: collapse;
@@ -341,11 +307,7 @@
       padding: 10px 11px;
       border: 1px solid var(--primary);
     }
-    table.data-table td {
-      padding: 9px 11px;
-      border: 1px solid var(--border);
-      vertical-align: top;
-    }
+    table.data-table td { padding: 9px 11px; border: 1px solid var(--border); vertical-align: top; }
     table.data-table tbody tr:nth-child(even) { background: #f9fafb; }
     table.data-table tr.total-row td {
       background: var(--primary-soft);
@@ -355,22 +317,16 @@
     }
     .num { text-align: right; white-space: nowrap; }
 
-    /* Checklist */
-    .checklist {
-      list-style: none;
-      padding: 0;
-      margin: 12px 0 18px;
-    }
-    .checklist li {
-      padding: 9px 12px;
-      border: 1px solid #e5e7eb;
+    .org-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid var(--primary);
       border-radius: 8px;
-      margin-bottom: 8px;
-      background: #fafafa;
-      font-size: 14px;
+      padding: 18px 20px;
+      margin: 12px 0 18px;
+      font-size: 14.2px;
     }
 
-    /* Video script */
     .script-card {
       border-left: 4px solid var(--primary-light);
       background: #f8fafc;
@@ -393,18 +349,18 @@
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .domains-grid { grid-template-columns: 1fr; }
       h1 { font-size: 21px; }
-      table.data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      table.data-table, table.meta-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     }
     @media (max-width: 560px) {
       .stats-grid { grid-template-columns: 1fr; }
     }
     @media print {
-      body { background: #fff; font-size: 11pt; }
+      body { background: #fff; font-size: 10.5pt; }
       .toolbar, .toc, .copy-btn { display: none !important; }
       .layout { display: block; max-width: 100%; margin: 0; padding: 0; }
       .paper { border: none; box-shadow: none; padding: 0; }
-      .q-card, table, .script-card { page-break-inside: avoid; }
-      .part-banner, .stat-card, .wc-badge, .domain-pill, table.data-table thead th, .confirm {
+      .q-card, table, .script-card, .org-box { page-break-inside: avoid; }
+      .part-banner, .stat-card, .wc-badge, .domain-pill, table.data-table thead th, .status-pill {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
@@ -416,49 +372,61 @@
 <div class="toolbar">
   <div class="toolbar-title">
     <span class="badge-fund">Fund 2 · WHH / STF</span>
-    <span>Seeding The Future Global Food System Challenge — Bản Review cho Thầy</span>
+    <span>Seeding The Future Global Food System Challenge — Final Submission Dossier</span>
   </div>
   <div class="toolbar-actions">
-    <button class="btn" onclick="document.body.classList.toggle('focus-confirm')">⚡ Làm nổi bật ô [CONFIRM]</button>
+    <a class="btn" href="./index.html">← Trang tổng hợp</a>
     <button class="btn btn-primary" onclick="window.print()">🖨️ In / Xuất PDF (A4)</button>
   </div>
 </div>
 
 <div class="layout">
   <aside class="toc">
-    <h3>Mục lục hồ sơ</h3>
-    <div class="toc-divider">Phần A · Câu trả lời Cổng WHH</div>
+    <h3>Application Sections</h3>
+    <div class="toc-divider">Profile &amp; Portal (Copy-Paste)</div>
     <ol>
-      <li><a href="#q1">1. Project Title (&lt;15 từ)</a></li>
-      <li><a href="#q2">2. Executive Summary (&lt;75 từ)</a></li>
-      <li><a href="#q3">3. 3 Trụ cột Giao nhau (&lt;100 từ)</a></li>
-      <li><a href="#q4">4. Prototype Evidence (&lt;100 từ)</a></li>
-      <li><a href="#q5">5. Degree of Innovation (&lt;100 từ)</a></li>
-      <li><a href="#q6">6. Beneficiaries &amp; SDGs (&lt;100 từ)</a></li>
-      <li><a href="#q7">7. Use of Funds (&lt;100 từ)</a></li>
-      <li><a href="#q8">8. Risks &amp; Mitigation (&lt;100 từ)</a></li>
-      <li><a href="#q9">9. Scalability &amp; Viability (&lt;100 từ)</a></li>
+      <li><a href="#org-profile">Organization Registration</a></li>
+      <li><a href="#q1">1. Project Title (&lt;15 words)</a></li>
+      <li><a href="#q2">2. Executive Summary (&lt;75 words)</a></li>
+      <li><a href="#q3">3. 3 Intersecting Domains</a></li>
+      <li><a href="#q4">4. Prototype Evidence</a></li>
+      <li><a href="#q5">5. Degree of Innovation</a></li>
+      <li><a href="#q6">6. Beneficiaries &amp; SDGs</a></li>
+      <li><a href="#q7">7. Use of Funds</a></li>
+      <li><a href="#q8">8. Risks &amp; Mitigation</a></li>
+      <li><a href="#q9">9. Scalability &amp; Viability</a></li>
     </ol>
-    <div class="toc-divider">Phần B · Hồ sơ Kỹ thuật &amp; Video</div>
+    <div class="toc-divider">Dossier, Org PDF &amp; Video</div>
     <ol>
-      <li><a href="#sec-10">10. Experimental Field Design</a></li>
+      <li><a href="#sec-10">10. Field Trial (45 ha)</a></li>
       <li><a href="#sec-11">11. 12-Month Workplan</a></li>
       <li><a href="#sec-12">12. $25,000 Seed Budget</a></li>
-      <li><a href="#sec-13">13. Portal Attachments</a></li>
+      <li><a href="#sec-org">13. 1-Page Org &amp; Finance PDF</a></li>
       <li><a href="#sec-14">14. 3-Min Finalist Video Script</a></li>
     </ol>
     <div class="toc-note">
-      <strong>Đã kiểm đếm từ tự động:</strong><br/>
-      100% câu trả lời Phần A đạt chuẩn giới hạn <code>&lt;15</code>, <code>&lt;75</code>, <code>&lt;100</code> từ của cổng Welthungerhilfe.<br/>
-      Cổng mở: <strong>01/01 – 15/02/2027</strong>.
+      <strong>Word Limits Verified:</strong><br/>
+      All 12 portal boxes strictly pass <code>&lt;15</code>, <code>&lt;75</code>, and <code>&lt;100</code> word limits.<br/>
+      <strong>Portal Opens:</strong> Jan 1 – Feb 15, 2027.
     </div>
   </aside>
 
   <main class="paper">
+    <div class="brand-bar">
+      <div class="brand-left">
+        <img src="./logo-mekong-green-ai.png" alt="Mekong Green AI Logo" class="brand-logo" onerror="this.style.display='none'" />
+        <div class="brand-meta">
+          <strong>Mekong Green AI Technology Co., Ltd.</strong> (MEGATECH AI)<br/>
+          Enterprise ID: 1602238040 · 183 Ha Huy Tap, Long Xuyen, An Giang, Vietnam · www.megatechaiag.com
+        </div>
+      </div>
+      <span class="status-pill">✓ Portal Copy-Paste Ready</span>
+    </div>
+
     <header class="doc-header">
       <div class="eyebrow">Welthungerhilfe (WHH) &amp; Seeding The Future Foundation · Global Food System Challenge</div>
       <h1>Mekong Rice AI: Cooperative Smart Irrigation and Safe-Rice Traceability for Mekong Smallholders</h1>
-      <p class="subtitle">Target Tier: <strong>Seed Grant ($25,000)</strong> — Prototype-to-Field Proof of Concept | Portal: <code>welthungerhilfe.org/global-food-system-challenge/your-application</code></p>
+      <p class="subtitle">Target Tier: <strong>Seed Grant (USD 25,000)</strong> — Working Prototype to Field Validation in An Giang, Mekong Delta, Vietnam</p>
 
       <div class="stats-grid">
         <div class="stat-card">
@@ -469,160 +437,125 @@
         <div class="stat-card">
           <div class="stat-label">Grant Request</div>
           <div class="stat-value">USD 25,000</div>
-          <div class="stat-sub">+ ~$8,000 local in-kind</div>
+          <div class="stat-sub">+ $8,000 local in-kind</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Duration &amp; Scope</div>
-          <div class="stat-value">12 Months</div>
-          <div class="stat-sub">1 Full Season · 40–50 ha</div>
+          <div class="stat-label">Controlled Scope</div>
+          <div class="stat-value">45 ha · 36 HHs</div>
+          <div class="stat-sub">30 ha AWD vs. 15 ha Control</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Application Window</div>
+          <div class="stat-label">Portal Window</div>
           <div class="stat-value">Jan 1 – Feb 15, 2027</div>
-          <div class="stat-sub">Strict &lt;100-word Portal</div>
+          <div class="stat-sub">12-Month Execution</div>
         </div>
       </div>
     </header>
 
-    <div class="callout-review">
-      <strong>Ghi chú nhanh cho Thầy review:</strong> Khác với PAA (đánh vào quy mô hệ thống 100–200 ha &amp; đo buồng khí), hồ sơ <strong>Seeding The Future Seed Grant ($25k)</strong> đánh thẳng vào lợi thế <strong>mẫu thử phần mềm Coop360 đã chạy 11 use cases</strong> và ăn trọn <strong>giao điểm cả 3 trụ cột hệ thống thực phẩm của WHH</strong> — đặc biệt là mô-đun <strong>Cảnh báo Ngày Cách ly Thuốc BVTV (PHI Alerts)</strong> giúp chứng minh trụ cột <em>An toàn Thực phẩm</em> rất thuyết phục. Mọi câu trả lời Phần A đều có nút <strong>Copy</strong> để dán trực tiếp lên cổng.
-    </div>
-
     <div class="domains-grid">
       <div class="domain-pill d1">
         <strong>1. Sustainable &amp; Regenerative</strong>
-        Safe AWD + FarmUAV: giảm 20–30% nước tưới, giảm 10–15% phân/thuốc, giảm 30–40% CH<sub>4</sub> (đo đối chứng IPCC Tier 2).
+        Safe AWD + FarmUAV: 20–30% less water, 10–15% lower inputs, 30–40% lower CH<sub>4</sub> (paired IPCC Tier 2).
       </div>
       <div class="domain-pill d2">
         <strong>2. Safe &amp; Nutritious Food</strong>
-        Coop360 PHI Alerts chặn thu hoạch lúa chưa hết ngày cách ly thuốc BVTV + KCS + mã QR minh bạch.
+        Coop360 PHI Alert Engine blocks unsafe pesticide-residue harvesting + KCS grading + tamper-evident QR.
       </div>
       <div class="domain-pill d3">
         <strong>3. Equitable Access &amp; Trust</strong>
-        Dịch vụ dùng chung cấp HTX ($10–15/ha) tăng lợi nhuận nông dân 12–20% mà không làm tăng giá gạo bán lẻ.
+        Cooperative-shared tools (~$14/ha) boost smallholder net profit 12–20% with zero retail rice price increase.
       </div>
     </div>
 
-    <div class="part-banner">Part A — Portal-Ready Answers (Strict Word-Count Verified)</div>
+    <section id="org-profile">
+      <h2>Organization Registration Details (For WHH Portal)</h2>
+      <table class="meta-table">
+        <tr><th>Legal Organization Name</th><td><strong>Mekong Green AI Technology Co., Ltd.</strong> (<em>Công ty TNHH Công nghệ Mekong Green AI</em>)</td></tr>
+        <tr><th>Entity Type</th><td>Small / Emerging For-Profit Impact Enterprise (Woman-led legal representation)</td></tr>
+        <tr><th>Registration / Tax ID</th><td><code>1602238040</code> — Incorporated October 28, 2026 (An Giang Province, Vietnam)</td></tr>
+        <tr><th>Authorized Signatory</th><td><strong>Ms. Nguyen Thi Ngoc Bich</strong> (Director &amp; Legal Representative) · Board Chair: <strong>Mr. Doan Quan Bao</strong></td></tr>
+        <tr><th>Headquarters Address</th><td>183 Ha Huy Tap Street, Long Xuyen Ward, An Giang Province, Vietnam</td></tr>
+        <tr><th>Official Contacts</th><td>Email: <code>contact@megatechaiag.com</code> · Phone: <code>+84 367 533 230</code> / <code>+84 858 300 789</code> · Web: <a href="https://www.megatechaiag.com" target="_blank">www.megatechaiag.com</a></td></tr>
+      </table>
+    </section>
+
+    <div class="part-banner">Part A — Portal-Ready Answers (Strict Word Counts Verified · Click Copy)</div>
 
     <div class="q-card" id="q1">
       <div class="q-header">
         <span class="q-title">1. Project Title (Limit: &lt; 15 words)</span>
-        <div class="q-meta">
-          <span class="wc-badge">12 / 15 words ✓</span>
-          <button class="copy-btn" onclick="copyText(this)">Copy</button>
-        </div>
+        <div class="q-meta"><span class="wc-badge">12 / 15 words ✓</span><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
       </div>
-      <div class="q-body">
-        <p><strong>Mekong Rice AI: Cooperative Smart Irrigation and Safe-Rice Traceability for Mekong Smallholders</strong></p>
-      </div>
+      <div class="q-body"><p><strong>Mekong Rice AI: Cooperative Smart Irrigation and Safe-Rice Traceability for Mekong Smallholders</strong></p></div>
     </div>
 
     <div class="q-card" id="q2">
       <div class="q-header">
         <span class="q-title">2. Executive Summary (Limit: &lt; 75 words)</span>
-        <div class="q-meta">
-          <span class="wc-badge">72 / 75 words ✓</span>
-          <button class="copy-btn" onclick="copyText(this)">Copy</button>
-        </div>
+        <div class="q-meta"><span class="wc-badge">72 / 75 words ✓</span><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
       </div>
-      <div class="q-body">
-        <p>Mekong Rice AI integrates our working cooperative platform (<strong>MGA Coop360</strong>) with <strong>FarmUAV</strong> aerial diagnostics and simple Alternate Wetting and Drying (AWD) water monitoring for smallholder rice cooperatives in Vietnam’s Mekong Delta. Over 12 months, we will field-validate this prototype across 40 hectares (paired AWD vs. control plots) to prove 20–30% irrigation water savings, 100% pesticide Pre-Harvest Interval (PHI) safety compliance, preserved yields, higher farmer net profits, and verifiable low-emission rice traceability.</p>
-      </div>
+      <div class="q-body"><p>Mekong Rice AI integrates our working cooperative platform (<strong>MGA Coop360</strong>) with <strong>FarmUAV</strong> aerial diagnostics and Alternate Wetting and Drying (AWD) water monitoring for rice cooperatives in An Giang, Vietnam’s Mekong Delta. Over 12 months, we will validate this prototype across 45 hectares (30 ha AWD vs. 15 ha control) to prove 20–30% water savings, 100% pesticide Pre-Harvest Interval (PHI) safety compliance, preserved yields, higher net profits, and verifiable QR rice traceability.</p></div>
     </div>
 
     <div id="q3">
       <div class="q-card">
         <div class="q-header">
           <span class="q-title">3A. Domain 1 — Sustainable &amp; Regenerative Practices (Limit: &lt; 100 words)</span>
-          <div class="q-meta">
-            <span class="wc-badge">86 / 100 words ✓</span>
-            <button class="copy-btn" onclick="copyText(this)">Copy</button>
-          </div>
+          <div class="q-meta"><span class="wc-badge">87 / 100 words ✓</span><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
         </div>
-        <div class="q-body">
-          <p>Continuously flooded Mekong Delta rice paddies waste irrigation water and generate major agricultural methane (CH<sub>4</sub>) emissions alongside excess agrochemical runoff. Mekong Rice AI combines low-cost AWD field tubes, sentinel water-level sensors, hyperlocal weather alerts inside MGA Coop360, and FarmUAV crop-stress imaging to guide timely drainage without yield loss. In paired treatment-versus-control cooperative plots, this prototype targets 20–30% less irrigation water, 10–15% lower fertilizer and pesticide inputs, reduced field losses through early pest/water-stress detection, and 30–40% estimated CH<sub>4</sub> reductions tracked transparently via IPCC Tier 2 water-regime protocols.</p>
-        </div>
+        <div class="q-body"><p>Continuously flooded Mekong Delta rice paddies waste irrigation water and generate major agricultural methane (CH<sub>4</sub>) emissions alongside excess agrochemical runoff. Mekong Rice AI combines low-cost AWD field tubes, sentinel water-level sensors, hyperlocal weather alerts inside MGA Coop360, and FarmUAV crop-stress imaging to guide timely drainage without yield loss. In paired treatment-versus-control plots in An Giang, this prototype targets 20–30% less irrigation water, 10–15% lower fertilizer and pesticide inputs, reduced field losses through early pest/water-stress detection, and 30–40% estimated CH<sub>4</sub> reductions tracked transparently via IPCC Tier 2 water-regime protocols.</p></div>
       </div>
 
       <div class="q-card">
         <div class="q-header">
           <span class="q-title">3B. Domain 2 — Safe &amp; Nutritious Food for a Healthy Diet (Limit: &lt; 100 words)</span>
-          <div class="q-meta">
-            <span class="wc-badge">91 / 100 words ✓</span>
-            <button class="copy-btn" onclick="copyText(this)">Copy</button>
-          </div>
+          <div class="q-meta"><span class="wc-badge">91 / 100 words ✓</span><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
         </div>
-        <div class="q-body">
-          <p>Rice provides the primary daily calories for over 95 million Vietnamese and hundreds of millions across Southeast Asia, making chemical safety in staple rice critical to public health. MGA Coop360’s built-in <strong>Pre-Harvest Interval (PHI) Alert Engine</strong> automatically tracks every pesticide application logged in digital field diaries and blocks harvest lot certification with red/yellow/green safety alerts until safe withdrawal periods pass. Combined with moisture/quality grading (KCS) and FarmUAV precision spraying that cuts unnecessary chemical use, the system delivers residue-safe, clean staple rice backed by tamper-evident QR lot traceability from field to consumer.</p>
-        </div>
+        <div class="q-body"><p>Rice provides the primary daily calories for over 95 million Vietnamese and hundreds of millions across Southeast Asia, making chemical safety in staple rice critical to public health. MGA Coop360’s built-in <strong>Pre-Harvest Interval (PHI) Alert Engine</strong> automatically tracks every pesticide application logged in digital field diaries and blocks harvest lot certification with red/yellow/green safety alerts until safe withdrawal periods pass. Combined with moisture/quality grading (KCS) and FarmUAV precision spraying that cuts unnecessary chemical use, the system delivers residue-safe, clean staple rice backed by tamper-evident QR lot traceability from field to consumer.</p></div>
       </div>
 
       <div class="q-card">
         <div class="q-header">
           <span class="q-title">3C. Domain 3 — Equitable Access, Affordability, Appeal &amp; Trust (Limit: &lt; 100 words)</span>
-          <div class="q-meta">
-            <span class="wc-badge">83 / 100 words ✓</span>
-            <button class="copy-btn" onclick="copyText(this)">Copy</button>
-          </div>
+          <div class="q-meta"><span class="wc-badge">83 / 100 words ✓</span><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
         </div>
-        <div class="q-body">
-          <p>Smallholder farmers rarely adopt sustainable practices when tools are costly or buyers distrust paper records. Our cooperative-shared model spreads digital platform and UAV costs across member households (~USD 10–15/ha/season), reducing pumping and input costs so household net profit rises 12–20% <em>without increasing retail rice prices</em>. Consumers and domestic rice millers scan a lot-level QR code generated by Coop360 to verify safe pesticide withdrawal dates, water-saving practices, and harvest quality—making sustainably produced, residue-safe rice both economically affordable and visibly trustworthy for Global South households.</p>
-        </div>
+        <div class="q-body"><p>Smallholder farmers rarely adopt sustainable practices when tools are costly or buyers distrust paper records. Our cooperative-shared model spreads digital platform and UAV costs across member households (~USD 14/ha/season), reducing pumping and input costs so household net profit rises 12–20% <em>without increasing retail rice prices</em>. Consumers and domestic rice millers scan a lot-level QR code generated by Coop360 to verify safe pesticide withdrawal dates, water-saving practices, and harvest quality—making sustainably produced, residue-safe rice both economically affordable and visibly trustworthy for Global South households.</p></div>
       </div>
 
       <div class="q-card">
         <div class="q-header">
           <span class="q-title">3D. Preventing Negative Trade-offs Across Domains (Limit: &lt; 100 words)</span>
-          <div class="q-meta">
-            <span class="wc-badge">90 / 100 words ✓</span>
-            <button class="copy-btn" onclick="copyText(this)">Copy</button>
-          </div>
+          <div class="q-meta"><span class="wc-badge">91 / 100 words ✓</span><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
         </div>
-        <div class="q-body">
-          <p>Poorly managed water saving can trigger weeds, moisture stress, or yield drops that hurt farmer incomes and food affordability. Mekong Rice AI mitigates this by applying "Safe AWD"—keeping fields flooded during sensitive germination and flowering stages—paired with FarmUAV early stress detection and a matched continuous-flooding control group inside the same cooperative. If yield or net profit lags control plots, irrigation thresholds are adjusted immediately. Meanwhile, our automated PHI alerts prevent farmers from compensating for weeds or pests with unsafe late-season pesticide applications, protecting both food safety and ecosystem health.</p>
-        </div>
+        <div class="q-body"><p>Poorly managed water saving can trigger weeds, moisture stress, or yield drops that hurt farmer incomes and food affordability. Mekong Rice AI mitigates this by applying "Safe AWD"—keeping fields flooded during sensitive germination and flowering stages—paired with FarmUAV early stress detection and a matched continuous-flooding control group inside the same cooperative dike compartment. If yield or net profit lags control plots, irrigation thresholds are adjusted immediately. Meanwhile, automated PHI alerts prevent farmers from compensating for weeds or pests with unsafe late-season pesticide sprays, protecting both food safety and ecosystem health.</p></div>
       </div>
     </div>
 
     <div class="q-card" id="q4">
       <div class="q-header">
         <span class="q-title">4. Stage of Development &amp; Prototype Evidence (Limit: &lt; 100 words)</span>
-        <div class="q-meta">
-          <span class="wc-badge">89 / 100 words ✓</span>
-          <button class="copy-btn" onclick="copyText(this)">Copy</button>
-        </div>
+        <div class="q-meta"><span class="wc-badge">92 / 100 words ✓</span><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
       </div>
-      <div class="q-body">
-        <p>We are beyond concept stage with a <strong>working full-stack software prototype (MGA Coop360)</strong> built on Next.js, Spring Boot, and PostgreSQL, featuring 11 operational modules: farmer/plot GPS registry, seasonal plans, mobile offline-capable worklogs, input inventory, automated PHI pesticide alerts, harvest lot numbering, KCS quality grading, QR traceability, live Open-Meteo 7-day weather forecasts, and drone service booking (<code>UC-11</code>). This Seed Grant funds field integration of rice-specific AWD water-level telemetry, FarmUAV agronomic stress mapping, and our first controlled, side-by-side smallholder cooperative trial measuring water volume, yield, net profit, and counterfactual GHG reductions.</p>
-      </div>
+      <div class="q-body"><p>We are beyond concept stage with a <strong>working full-stack software prototype (MGA Coop360)</strong> built on Next.js, Spring Boot, and PostgreSQL, featuring 11 operational modules: farmer/plot GPS registry, seasonal plans, offline-capable mobile worklogs, input inventory, automated PHI pesticide alerts, harvest lot numbering, KCS quality grading, QR traceability, live Open-Meteo 7-day weather forecasts, and drone service booking (<code>UC-11</code>). This Seed Grant funds field integration of rice-specific AWD water-level telemetry, FarmUAV agronomic stress mapping, and our first controlled 45-hectare smallholder cooperative trial in An Giang measuring water volume, yield, net profit, and counterfactual GHG reductions.</p></div>
     </div>
 
     <div class="q-card" id="q5">
       <div class="q-header">
         <span class="q-title">5. Degree of Innovation — What Makes This Breakthrough (Limit: &lt; 100 words)</span>
-        <div class="q-meta">
-          <span class="wc-badge">89 / 100 words ✓</span>
-          <button class="copy-btn" onclick="copyText(this)">Copy</button>
-        </div>
+        <div class="q-meta"><span class="wc-badge">89 / 100 words ✓</span><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
       </div>
-      <div class="q-body">
-        <p>Existing rice agtech solutions fail smallholders because they fragment into expensive standalone IoT hardware, unverified paper carbon audits, or enterprise tools inaccessible to cooperatives. Mekong Rice AI is novel in unifying <strong>cooperative daily ERP operations, automated PHI food-safety enforcement, shared FarmUAV diagnostics, and controlled AWD water-profit-GHG measurement</strong> inside one low-cost, mobile-first cooperative workflow. Instead of selling farmers an abstract "carbon app," we embed climate-smart irrigation and residue safety into the exact tool cooperatives use to manage inputs, dispatch drones, and prove household profit—unlocking voluntary adoption and trustworthy data simultaneously.</p>
-      </div>
+      <div class="q-body"><p>Existing rice agtech solutions fail smallholders because they fragment into expensive standalone IoT hardware, unverified paper carbon audits, or enterprise tools inaccessible to cooperatives. Mekong Rice AI is novel in unifying <strong>cooperative daily ERP operations, automated PHI food-safety enforcement, shared FarmUAV diagnostics, and controlled AWD water-profit-GHG measurement</strong> inside one low-cost, mobile-first cooperative workflow. Instead of selling farmers an abstract "carbon app," we embed climate-smart irrigation and residue safety into the exact tool cooperatives use to manage inputs, dispatch drones, and prove household profit—unlocking voluntary adoption and trustworthy data simultaneously.</p></div>
     </div>
 
     <div class="q-card" id="q6">
       <div class="q-header">
         <span class="q-title">6. Target Beneficiaries, Geography &amp; SDG Alignment (Limit: &lt; 100 words)</span>
-        <div class="q-meta">
-          <span class="wc-badge">89 / 100 words ✓</span>
-          <button class="copy-btn" onclick="copyText(this)">Copy</button>
-        </div>
+        <div class="q-meta"><span class="wc-badge">85 / 100 words ✓</span><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
       </div>
       <div class="q-body">
         <ul>
-          <li><strong>Primary Beneficiaries:</strong> <span class="confirm">CONFIRM: 30–40</span> smallholder rice-farming households (targeting &ge;30% women co-managers) across <span class="confirm">CONFIRM: 40–50</span> hectares in <span class="confirm">CONFIRM: Partner Cooperative, Mekong Delta Province, Vietnam</span> during the 12-month Seed Grant, expanding to 1,500+ households across Mekong Delta cooperatives post-validation.</li>
-          <li><strong>Secondary Beneficiaries:</strong> Local rice millers, cooperative managers, and low- to middle-income consumers gaining affordable, verified residue-safe rice.</li>
+          <li><strong>Primary Beneficiaries:</strong> <strong>36 smallholder rice-farming households</strong> (&ge;35% women co-managers) cultivating <strong>45 hectares</strong> inside a unified closed-dike cooperative in <strong>An Giang Province, Vietnam</strong> during the 12-month Seed Grant, expanding to 1,500+ households across Mekong Delta cooperatives post-validation.</li>
+          <li><strong>Secondary Beneficiaries:</strong> Local rice millers, cooperative managers, and low- to middle-income Global South consumers gaining affordable, verified residue-safe rice.</li>
           <li><strong>Target SDGs:</strong> <strong>SDG 2</strong> (Zero Hunger &amp; Sustainable Agriculture), <strong>SDG 6</strong> (Clean Water / Irrigation Efficiency), <strong>SDG 12</strong> (Responsible Production &amp; Food Safety), and <strong>SDG 13</strong> (Climate Action / Methane Reduction).</li>
         </ul>
       </div>
@@ -631,85 +564,49 @@
     <div class="q-card" id="q7">
       <div class="q-header">
         <span class="q-title">7. Use of Funds &amp; Catalytic Impact — What Happens Without Funding (Limit: &lt; 100 words)</span>
-        <div class="q-meta">
-          <span class="wc-badge">91 / 100 words ✓</span>
-          <button class="copy-btn" onclick="copyText(this)">Copy</button>
-        </div>
+        <div class="q-meta"><span class="wc-badge">92 / 100 words ✓</span><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
       </div>
-      <div class="q-body">
-        <p>The $25,000 Seed Grant directly funds: (1) adding the AWD water-alert, household profit ledger, and IPCC Tier 2 GHG estimation module to our working Coop360 prototype; (2) deploying AWD tubes, sentinel water sensors, pump meters, and scheduled FarmUAV flights across 40–50 ha of paired treatment/control plots; and (3) training cooperative farmers and conducting independent crop-cut and profit verification. <strong>Without this grant</strong>, our team cannot finance field sensors, UAV flights, and controlled agronomic validation—leaving Coop360 confined to software demonstrations without the rigorous smallholder proof needed to attract scale-up partners and follow-on capital.</p>
-      </div>
+      <div class="q-body"><p>The $25,000 Seed Grant directly funds: (1) adding the AWD water-alert, household profit ledger, and IPCC Tier 2 GHG module to our working Coop360 prototype; (2) deploying AWD tubes, 8 sentinel water sensors, pump meters, and 4 FarmUAV survey flights across 45 ha of paired treatment/control plots in An Giang; and (3) farmer training plus independent crop-cut and profit verification. <strong>Without this grant</strong>, our newly established enterprise cannot finance field sensors, UAV flights, and controlled validation—leaving Coop360 stuck in software demos without the smallholder proof needed for scale-up capital.</p></div>
     </div>
 
     <div class="q-card" id="q8">
       <div class="q-header">
         <span class="q-title">8. Key Risks &amp; Mitigation Over the Next 12 Months (Limit: &lt; 100 words)</span>
-        <div class="q-meta">
-          <span class="wc-badge">81 / 100 words ✓</span>
-          <button class="copy-btn" onclick="copyText(this)">Copy</button>
-        </div>
+        <div class="q-meta"><span class="wc-badge">87 / 100 words ✓</span><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
       </div>
-      <div class="q-body">
-        <p>Three key risks face our 12-month pilot: (1) <strong>Farmer fear of yield loss</strong> during field drying—mitigated via Safe AWD rules, visual field tubes, and early FarmUAV stress alerts; (2) <strong>Low digital literacy among older farmers</strong>—mitigated via local cooperative youth "digital champions," simplified mobile PWA screens, and Zalo/SMS irrigation alerts; and (3) <strong>Unseasonal Mekong Delta rainfall or salinity</strong>—mitigated by running paired treatment and control plots inside the same hydrological dike compartment (<em>ô bao</em>) so weather impacts are cleanly isolated from technology performance.</p>
-      </div>
+      <div class="q-body"><p>Three key risks face our 12-month An Giang pilot: (1) <strong>Farmer fear of yield loss</strong> during drainage—mitigated via Safe AWD rules, visual field tubes, and early FarmUAV stress alerts; (2) <strong>Low digital literacy among older farmers</strong>—mitigated via 3 local cooperative youth "digital champions," simplified offline PWA forms, and Zalo/SMS alerts; and (3) <strong>Unseasonal Mekong Delta rainfall or hydrology shifts</strong>—mitigated by running 30 ha treatment and 15 ha control plots inside the same closed-dike compartment (<em>ô bao</em>) so weather impacts are isolated cleanly from technology performance.</p></div>
     </div>
 
     <div class="q-card" id="q9">
       <div class="q-header">
         <span class="q-title">9. Scalability &amp; Long-Term Economic Viability (Limit: &lt; 100 words)</span>
-        <div class="q-meta">
-          <span class="wc-badge">90 / 100 words ✓</span>
-          <button class="copy-btn" onclick="copyText(this)">Copy</button>
-        </div>
+        <div class="q-meta"><span class="wc-badge">91 / 100 words ✓</span><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
       </div>
-      <div class="q-body">
-        <p>Vietnam’s national <em>1 Million Hectares High-Quality, Low-Emission Rice Program</em> creates immediate institutional demand across hundreds of Mekong Delta cooperatives. Because Mekong Rice AI generates an estimated USD 100–180/ha/season in farmer savings and revenue gains, cooperatives can sustain the platform after the grant via an affordable USD 10–15/ha/season bundled SaaS and shared UAV service fee, supplemented by B2B traceability fees from export rice millers. Once 12-month controlled field evidence is established, we will pursue follow-on scaling grants (e.g., WHH Growth Grant, FID/DIV) and provincial cooperative alliance partnerships across Southeast Asia.</p>
-      </div>
+      <div class="q-body"><p>Vietnam’s national <em>1 Million Hectares High-Quality, Low-Emission Rice Program</em> creates immediate institutional demand across hundreds of Mekong Delta cooperatives, starting in An Giang—Vietnam’s largest rice province. Because Mekong Rice AI generates an estimated USD 100–160/ha/season in farmer cost savings and revenue gains, cooperatives can sustain the platform post-grant via an affordable USD 14/ha/season bundled SaaS and shared UAV service fee, plus B2B traceability fees from export rice millers. Once 12-month controlled evidence is verified, we will pursue follow-on scaling grants (WHH Growth Grant, FID/DIV) across Southeast Asia.</p></div>
     </div>
 
-    <div class="part-banner">Part B — Technical Dossier, 12-Month Workplan, Budget &amp; Pitch Video</div>
+    <div class="part-banner">Part B — Technical Dossier, 12-Month Workplan &amp; $25,000 Budget</div>
 
     <section id="sec-10">
-      <h2>10. Experimental Field Validation Design (40–50 ha, 1 Full Comparative Season)</h2>
-      <p>To maximize scientific rigor within a lean <strong>$25,000 Seed Grant</strong>, the field trial uses a paired-plot controlled design inside <strong>one committed Mekong Delta rice cooperative</strong>:</p>
+      <h2>10. Controlled Field Trial Design (45 Hectares, 1 Full Comparative Season)</h2>
       <ul>
-        <li><strong>Treatment Plots (<span class="confirm">CONFIRM: 25–30</span> ha; ~20–25 households):</strong> Full Mekong Rice AI package — Coop360 mobile logging + Safe AWD tubes &amp; sentinel water sensors + weather-linked irrigation alerts + automated PHI pesticide safety checks + 3–4 scheduled FarmUAV flights.</li>
-        <li><strong>Control Plots (<span class="confirm">CONFIRM: 15–20</span> ha; ~10–15 households):</strong> Same rice variety, planting week, soil type, and dike compartment (<em>ô bao</em>), following Business-as-Usual continuous flooding, tracked with identical pump-energy logs, input receipts, and crop-cut yield sampling.</li>
-        <li><strong>Four Measured Outcomes:</strong> (1) <strong>Irrigation Water Volume</strong> (m&sup3;/ha &amp; pumping cost), (2) <strong>Paddy Yield</strong> (t/ha at 14% moisture via crop-cuts + weighbridge/KCS), (3) <strong>Household Net Profit</strong> (digital receipt-verified), and (4) <strong>Controlled IPCC Tier 2 CH<sub>4</sub> Estimate + 100% PHI Safety Audit + Consumer/Buyer QR Trust Check</strong>.</li>
+        <li><strong>Treatment Plots (30 ha; ~24 households):</strong> Full Mekong Rice AI stack — Coop360 mobile logging + 60 PVC Safe AWD tubes &amp; 8 sentinel ultrasonic water sensors + weather-linked Zalo/app alerts + automated PHI pesticide safety gates + 4 FarmUAV RGB/multispectral flights.</li>
+        <li><strong>Control Plots (15 ha; ~12 households):</strong> Identical rice variety (OM18 / Dai Thom 8), sowing week, alluvial soil, and closed-dike <em>ô bao</em> under BAU continuous flooding, monitored with identical pump kWh logs, input receipts, and quadrat crop-cuts.</li>
+        <li><strong>Four Verified Outcomes:</strong> (1) Irrigation water volume (m&sup3;/ha &amp; pumping cost), (2) Standardized paddy yield (t/ha @ 14% moisture), (3) Receipt-verified household net profit (VND &amp; USD/ha), and (4) Controlled IPCC Tier 2 CH<sub>4</sub> estimate + 100% PHI safety audit + buyer/consumer QR trust survey.</li>
       </ul>
     </section>
 
     <section id="sec-11">
-      <h2>11. 12-Month Implementation Timeline &amp; Deliverables</h2>
+      <h2>11. 12-Month Implementation Plan &amp; Milestones</h2>
       <table class="data-table">
         <thead>
-          <tr>
-            <th style="width:18%;">Quarter</th>
-            <th style="width:24%;">Phase Focus</th>
-            <th style="width:58%;">Key Activities &amp; Milestones</th>
-          </tr>
+          <tr><th style="width:18%;">Quarter</th><th style="width:24%;">Phase Focus</th><th style="width:58%;">Key Activities &amp; Deliverables</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td><strong>Q1</strong><br/>Months 1–3</td>
-            <td><strong>Prototype Integration &amp; Setup</strong></td>
-            <td>Confirm signed Cooperative MoU &amp; IP/data governance; digitize 40–50 ha Treatment/Control plots in Coop360; build AWD alert engine, household profit ledger &amp; IPCC Tier 2 module; procure AWD tubes, 8 sentinel water sensors &amp; pump meters; run baseline survey.</td>
-          </tr>
-          <tr>
-            <td><strong>Q2</strong><br/>Months 4–6</td>
-            <td><strong>Onboarding &amp; Field Launch</strong></td>
-            <td>Train 30–40 farmers (&ge;30% women) + 3 cooperative youth champions on Safe AWD, Coop360 mobile logs &amp; PHI alerts; launch full comparative season; execute UAV Flight #1 (establishment/leveling) and Flight #2 (tillering/water status).</td>
-          </tr>
-          <tr>
-            <td><strong>Q3</strong><br/>Months 7–9</td>
-            <td><strong>Monitoring, Harvest &amp; Verification</strong></td>
-            <td>Execute UAV Flight #3 (panicle/flowering) and Flight #4 (pre-harvest); enforce PHI safety gate prior to harvest; conduct independent quadrat crop-cuts, KCS moisture tests, weighbridge logging, QR lot labeling, and buyer/consumer QR trust check.</td>
-          </tr>
-          <tr>
-            <td><strong>Q4</strong><br/>Months 10–12</td>
-            <td><strong>Evaluation &amp; Scale Readiness</strong></td>
-            <td>Audit comparative dataset (Water, Yield, Net Profit, CH<sub>4</sub>, PHI); validate cooperative willingness-to-pay for Season 2; publish open <em>Field Proof-of-Concept Report</em>; submit WHH final report and prepare follow-on scale proposals.</td>
-          </tr>
+          <tr><td><strong>Q1</strong><br/>Months 1–3</td><td><strong>Prototype Integration &amp; Setup</strong></td><td>Finalize An Giang Cooperative MoU; digitize 45 ha (30T/15C) GPS plots in Coop360; build Rice-AWD alert, profit ledger &amp; IPCC Tier 2 module; install 60 AWD tubes, 8 water sensors &amp; pump meters; baseline survey.</td></tr>
+          <tr><td><strong>Q2</strong><br/>Months 4–6</td><td><strong>Onboarding &amp; Season Launch</strong></td><td>Train 36 households (&ge;35% women) + 3 youth champions on Safe AWD, Coop360 diaries &amp; PHI alerts; launch full comparative season; complete FarmUAV Flights #1 &amp; #2.</td></tr>
+          <tr><td><strong>Q3</strong><br/>Months 7–9</td><td><strong>Monitoring, PHI Gate &amp; Harvest</strong></td><td>Complete FarmUAV Flights #3 &amp; #4; enforce automated PHI safety gate pre-harvest; run independent quadrat crop-cuts, KCS moisture grading, weighbridge weighing, QR labeling &amp; buyer/consumer trust survey.</td></tr>
+          <tr><td><strong>Q4</strong><br/>Months 10–12</td><td><strong>Evaluation &amp; Scale Prep</strong></td><td>Audit comparative dataset (Water, Yield, Net Profit, CH<sub>4</sub>, PHI); validate cooperative willingness-to-pay for USD 14/ha Season 2 fee; publish <em>Field Proof-of-Concept Report</em> &amp; prepare WHH Growth Grant / FID / DIV proposals.</td></tr>
         </tbody>
       </table>
     </section>
@@ -718,97 +615,53 @@
       <h2>12. Itemized Catalytic Seed Grant Budget (USD 25,000)</h2>
       <table class="data-table">
         <thead>
-          <tr>
-            <th style="width:28%;">Budget Category</th>
-            <th class="num" style="width:14%;">Amount (USD)</th>
-            <th class="num" style="width:10%;">Share</th>
-            <th style="width:48%;">Detailed Allocation</th>
-          </tr>
+          <tr><th style="width:28%;">Budget Category</th><th class="num" style="width:14%;">USD</th><th class="num" style="width:10%;">Share</th><th style="width:48%;">Detailed Allocation</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td><strong>1. Prototype Software Adaptation</strong></td>
-            <td class="num">$6,500</td>
-            <td class="num">26%</td>
-            <td>Rice AWD alert engine, household profit ledger, IPCC Tier 2 estimator, Zalo/SMS bridge, FarmUAV stress map viewer, 12-mo cloud hosting. <em>(Core Coop360 IP contributed in-kind).</em></td>
-          </tr>
-          <tr>
-            <td><strong>2. AWD Hardware, Sensors &amp; Pump Metering</strong></td>
-            <td class="num">$5,000</td>
-            <td class="num">20%</td>
-            <td>60 PVC AWD tubes ($300), 8 ultrasonic/pressure water-level IoT loggers + solar/4G SIMs ($3,200), 2–4 pump electricity/flow meters ($1,000), field installation ($500).</td>
-          </tr>
-          <tr>
-            <td><strong>3. FarmUAV Field Flights &amp; Imagery</strong></td>
-            <td class="num">$4,000</td>
-            <td class="num">16%</td>
-            <td>4 scheduled RGB/multispectral UAV survey missions across 40–50 ha + orthomosaic/NDVI stress mapping + precision spraying demo support.</td>
-          </tr>
-          <tr>
-            <td><strong>4. Cooperative Training &amp; Field Support</strong></td>
-            <td class="num">$5,000</td>
-            <td class="num">20%</td>
-            <td>Field coordinator/agronomist ($2,800), stipends for 3 youth digital champions ($900), 3 Farmer Field School workshops &amp; printed visual AWD/PHI guides ($1,300).</td>
-          </tr>
-          <tr>
-            <td><strong>5. Independent Verification &amp; Quality Testing</strong></td>
-            <td class="num">$3,000</td>
-            <td class="num">12%</td>
-            <td>Independent agronomic advisor (university/extension), moisture/KCS testing kit, QR label printing for pilot lots, buyer/consumer QR trust survey.</td>
-          </tr>
-          <tr>
-            <td><strong>6. Admin, Reporting &amp; Contingency</strong></td>
-            <td class="num">$1,500</td>
-            <td class="num">6%</td>
-            <td>Financial reporting compliance, site travel, and 5% field contingency.</td>
-          </tr>
+          <tr><td><strong>1. Prototype Software Adaptation</strong></td><td class="num">$6,500</td><td class="num">26%</td><td>Rice AWD engine, household profit ledger, IPCC Tier 2 estimator, Zalo/SMS bridge, FarmUAV NDVI viewer, 12-mo cloud hosting. <em>(Core Coop360 IP contributed in-kind).</em></td></tr>
+          <tr><td><strong>2. AWD Hardware, Sensors &amp; Metering</strong></td><td class="num">$5,000</td><td class="num">20%</td><td>60 PVC AWD tubes ($300), 8 solar/4G ultrasonic water loggers ($3,200), 2–4 pump electricity/flow meters ($1,000), mounting &amp; enclosures ($500).</td></tr>
+          <tr><td><strong>3. FarmUAV Flights &amp; Imagery</strong></td><td class="num">$4,000</td><td class="num">16%</td><td>4 scheduled RGB/multispectral UAV survey missions across 45 ha + orthomosaic/NDVI stress mapping + precision spraying demo support.</td></tr>
+          <tr><td><strong>4. Cooperative Training &amp; Field Team</strong></td><td class="num">$5,000</td><td class="num">20%</td><td>An Giang field agronomist ($2,800), 3 youth digital champions ($900), 3 Farmer Field Schools &amp; visual AWD/PHI guides ($1,300).</td></tr>
+          <tr><td><strong>5. Independent Verification &amp; KCS</strong></td><td class="num">$3,000</td><td class="num">12%</td><td>Independent agronomic advisor (AGU / extension), moisture/KCS kit, QR lot label printing, buyer/consumer QR trust survey.</td></tr>
+          <tr><td><strong>6. Admin, Reporting &amp; Contingency</strong></td><td class="num">$1,500</td><td class="num">6%</td><td>Financial reporting compliance, An Giang site travel, and 5% field contingency.</td></tr>
           <tr class="total-row">
-            <td>TOTAL SEED GRANT REQUEST</td>
-            <td class="num">$25,000</td>
-            <td class="num">100%</td>
-            <td>Plus ~$8,000 in-kind (existing Coop360 software IP, team overhead, coop facilities)</td>
+            <td>TOTAL SEED GRANT REQUEST</td><td class="num">$25,000</td><td class="num">100%</td><td>Plus ~$8,000 local in-kind (Coop360 IP, team overhead, cooperative facilities)</td>
           </tr>
         </tbody>
       </table>
     </section>
 
-    <section id="sec-13">
-      <h2>13. Required Portal Attachments Checklist (Opens Jan 1, 2027)</h2>
-      <ul class="checklist">
-        <li>☐ <strong>Legal Registration Certificate:</strong> <span class="confirm">CONFIRM: Business Registration Certificate (Giấy chứng nhận ĐKDN) of Công ty TNHH Mekong Green AI</span>.</li>
-        <li>☐ <strong>Most Recent Financial Statement:</strong> Latest Balance Sheet &amp; P&amp;L (tax-filed report or concise 1-page financial overview if newly established).</li>
-        <li>☐ <strong>Mission, Vision &amp; Business Overview:</strong> 1-page English summary of Mekong Green AI’s social/climate impact mandate and cooperative SaaS+UAV business model.</li>
-        <li>☐ <strong>Prototype Proof Pack:</strong> 3–5 annotated screenshots of live MGA Coop360 UI (plot GPS map, mobile worklog, PHI red/yellow/green alert screen, Weather API, QR traceability card, Drone Request <code>UC-11</code>).</li>
-        <li>☐ <strong>Signed Letter of Commitment / MoU</strong> from the pilot Mekong Delta Rice Cooperative.</li>
-      </ul>
+    <div class="part-banner">Part C &amp; D — Ready-to-Upload Org/Finance Overview &amp; 3-Min Pitch Script</div>
+
+    <section id="sec-org">
+      <h2>13. 1-Page Organization, Business &amp; Financial Overview (WHH Portal Attachment)</h2>
+      <div class="org-box">
+        <p><strong>Mekong Green AI Technology Co., Ltd.</strong> (<em>Công ty TNHH Công nghệ Mekong Green AI</em>; Enterprise ID: <code>1602238040</code>; incorporated October 28, 2026) is a woman-represented impact technology enterprise headquartered at <strong>183 Ha Huy Tap Street, Long Xuyen Ward, An Giang Province, Vietnam</strong> (<code>www.megatechaiag.com</code> | <code>contact@megatechaiag.com</code>). Led by Director &amp; Legal Representative <strong>Ms. Nguyen Thi Ngoc Bich</strong> and Board Chairman <strong>Mr. Doan Quan Bao</strong>, our mission is to equip Mekong Delta agricultural cooperatives and rural micro-enterprises with practical, affordable AI, IoT, and digital traceability tools that raise smallholder incomes while cutting irrigation water waste, pesticide residues, and greenhouse gas emissions.</p>
+        <p><strong>Business Model:</strong> Our modular platform ecosystem—anchored by <strong>MGA Coop360</strong> (cooperative ERP, mobile diaries, PHI safety engine, QR traceability), <strong>MGA SmartRice</strong>, <strong>MGA TraceHub</strong>, and <strong>MGA MicroBiz ERP</strong>—generates recurring revenue through affordable cooperative SaaS + shared FarmUAV bundles (~USD 14/ha/season) and B2B export-miller traceability API subscriptions.</p>
+        <p style="margin-bottom:0;"><strong>Financial &amp; Compliance Statement:</strong> Newly incorporated in October 2026 with zero external debt, clean-room software IP, and lean local Mekong Delta overhead. Statutory Vietnamese accounting records, charter-capital filings, and opening balance sheet / management financial statements are maintained for WHH due diligence; awarded grant funds will be administered via a segregated project account with transparent quarterly financial reporting.</p>
+      </div>
     </section>
 
     <section id="sec-14">
-      <h2>14. Ready-to-Record 3-Minute Finalist Pitch Video Script</h2>
-      <p style="font-size:13.5px; color:var(--muted);"><em>Prepared in advance for Stage 2 (WHH requires Finalists to submit a 2–5 minute pitch video).</em></p>
-
+      <h2>14. Ready-to-Record 3-Minute Finalist Pitch Video Script (Stage 2)</h2>
       <div class="script-card">
-        <div class="script-time">[0:00–0:30] The Hook — Visual: Mekong Delta rice fields &amp; water pump running</div>
-        <p style="margin:0;">“Every bowl of rice in Southeast Asia starts in fields like these in Vietnam’s Mekong Delta. Today, continuously flooded paddies waste up to 30% of their irrigation water, pump huge amounts of methane into our atmosphere, and squeeze smallholder farmers with rising fuel and chemical costs—while consumers still worry about pesticide residues in their daily food.”</p>
+        <div class="script-time">[0:00–0:30] The Hook — Visual: An Giang rice fields &amp; water pump running</div>
+        <p style="margin:0;">“Every bowl of rice in Southeast Asia starts in fields like these in An Giang—the heart of Vietnam’s Mekong Delta. Today, continuously flooded paddies waste up to 30% of their irrigation water, release huge amounts of methane, and squeeze smallholder farmers with rising fuel and chemical costs—while families still worry about pesticide residues in their daily food.”</p>
       </div>
-
       <div class="script-card">
-        <div class="script-time">[0:30–1:15] The Solution — Visual: Live screen-recording of MGA Coop360 mobile app + FarmUAV drone over paddy</div>
-        <p style="margin:0;">“Meet <strong>Mekong Rice AI</strong>. Instead of asking farmers to buy expensive standalone carbon gadgets, we combine our working cooperative platform—<strong>MGA Coop360</strong>—with <strong>FarmUAV</strong> drone imaging and simple water-level tubes. Farmers get plain-language weather and Alternate Wetting and Drying alerts on their phone, know the exact day it is safe to drain or irrigate, see crop stress early from drone maps, and get automated Pre-Harvest Interval alerts that guarantee pesticide-safe rice—all tied to a scannable QR code.”</p>
+        <div class="script-time">[0:30–1:15] The Solution — Visual: Live MGA Coop360 mobile app + FarmUAV flying over paddy</div>
+        <p style="margin:0;">“Meet <strong>Mekong Rice AI</strong>, built by Mekong Green AI right here in An Giang. Instead of selling expensive standalone carbon gadgets, we combine our working cooperative platform—<strong>MGA Coop360</strong>—with <strong>FarmUAV</strong> drone imaging and simple water-level tubes. Farmers get plain-Vietnamese weather and Alternate Wetting and Drying alerts on their phone, see crop stress early from drone maps, and get automated Pre-Harvest Interval alerts that block unsafe harvests—all linked to a scannable QR code.”</p>
       </div>
-
       <div class="script-card">
-        <div class="script-time">[1:15–2:05] Triple Food-System Impact — Visual: 3 intersecting circles graphic</div>
-        <p style="margin:0;">“This hits all three Seeding The Future pillars at once: <strong>First, sustainability</strong>—20 to 30% less water and 30 to 40% lower methane, verified side-by-side against control plots. <strong>Second, safe food</strong>—automated PHI withdrawal checks stop residue-contaminated harvests before they reach consumers. <strong>Third, equitable affordability</strong>—shared cooperative tools cut farmer costs and raise household net profit by 12 to 20% without raising the price of rice.”</p>
+        <div class="script-time">[1:15–2:05] Triple Impact — Visual: 3 intersecting circles</div>
+        <p style="margin:0;">“We hit all three Seeding The Future pillars together: <strong>First, sustainability</strong>—20 to 30% less water and 30 to 40% lower methane, measured side-by-side against control plots. <strong>Second, safe food</strong>—automated PHI withdrawal gates guarantee residue-compliant staple rice. <strong>Third, equitable affordability</strong>—shared cooperative tools cut farmer costs and lift household net profit 12 to 20% without raising retail rice prices.”</p>
       </div>
-
       <div class="script-card">
-        <div class="script-time">[2:05–2:45] Why Seed Grant &amp; Proof Plan — Visual: Cooperative leaders &amp; farmers in the Mekong Delta</div>
-        <p style="margin:0;">“Our Coop360 software prototype is already built with 11 working modules. With this $25,000 Seeding The Future Seed Grant, we will run a rigorous 12-month controlled trial across 40 to 50 hectares with a Mekong Delta rice cooperative—proving water saved, yield protected, household profit gained, and methane reduced.”</p>
+        <div class="script-time">[2:05–2:45] Why Seed Grant &amp; Proof Plan — Visual: An Giang cooperative farmers</div>
+        <p style="margin:0;">“Our Coop360 software prototype is already live with 11 working modules. This $25,000 Seed Grant will fund our 12-month controlled trial across 45 hectares and 36 households in An Giang—proving water saved, yield protected, profit gained, and methane reduced.”</p>
       </div>
-
       <div class="script-card">
-        <div class="script-time">[2:45–3:00] Closing — Visual: Team + Mekong Rice AI logo</div>
+        <div class="script-time">[2:45–3:00] Closing — Visual: Mekong Green AI team &amp; logo</div>
         <p style="margin:0;">“Help us prove that low-emission, residue-safe rice can also be the most profitable rice for Mekong Delta smallholders. Thank you.”</p>
       </div>
     </section>
@@ -818,8 +671,7 @@
 <script>
   function copyText(btn) {
     const body = btn.closest('.q-card').querySelector('.q-body');
-    const text = body.innerText.trim();
-    navigator.clipboard.writeText(text).then(() => {
+    navigator.clipboard.writeText(body.innerText.trim()).then(() => {
       const old = btn.textContent;
       btn.textContent = 'Copied ✓';
       setTimeout(() => btn.textContent = old, 1400);
