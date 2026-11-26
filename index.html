@@ -86,19 +86,26 @@
       padding: 4px 9px;
       border-radius: 6px;
     }
+    .cta-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 6px;
+    }
     .cta {
       display: inline-block;
       text-align: center;
       text-decoration: none;
       font-weight: 700;
-      font-size: 14.5px;
-      padding: 11px 16px;
+      font-size: 14px;
+      padding: 11px 14px;
       border-radius: 9px;
-      margin-top: 4px;
     }
     .cta-paa { background: #0f5132; color: #fff; }
     .cta-whh { background: #0f4c5c; color: #fff; }
+    .cta-vi { background: #fef3c7; color: #78350f; border: 1px solid #f59e0b; }
     .cta:hover { opacity: 0.92; }
+    @media (max-width: 560px) { .cta-row { grid-template-columns: 1fr; } }
 
     .org-footer {
       margin-top: 20px;
@@ -140,7 +147,10 @@
           <span class="pill">150 ha · 120 hộ</span>
           <span class="pill">An Giang · Đề án 1M ha</span>
         </div>
-        <a class="cta cta-paa" href="./paa.html">📄 Mở Hồ sơ Quỹ 1 (PAA — Bản Hoàn Chỉnh)</a>
+        <div class="cta-row">
+          <a class="cta cta-paa" href="./paa.html">🇬🇧 Bản Tiếng Anh (Nộp Quỹ)</a>
+          <a class="cta cta-vi" href="./paa-vi.html">🇻🇳 Bản Tiếng Việt (Team Review)</a>
+        </div>
       </div>
 
       <div class="card">
@@ -156,7 +166,10 @@
           <span class="pill">45 ha · 36 hộ</span>
           <span class="pill">Copy-Paste lên cổng WHH</span>
         </div>
-        <a class="cta cta-whh" href="./whh.html">📄 Mở Hồ sơ Quỹ 2 (Seeding The Future — Bản Hoàn Chỉnh)</a>
+        <div class="cta-row">
+          <a class="cta cta-whh" href="./whh.html">🇬🇧 Bản Tiếng Anh (Nộp Quỹ)</a>
+          <a class="cta cta-vi" href="./whh-vi.html">🇻🇳 Bản Tiếng Việt (Team Review)</a>
+        </div>
       </div>
     </div>
 

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hồ sơ Quỹ PAA (Bản Tiếng Việt) — Mekong Rice AI</title>
+  <style>
+    :root {
+      --primary: #0f5132;
+      --primary-light: #198754;
+      --primary-soft: #e9f5ee;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --border: #d1d5db;
+      --bg: #f3f4f6;
+      --card: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #0b3b24;
+      color: #fff;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+    }
+    .toolbar-title {
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge-fund {
+      background: #d97706;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .toolbar-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover { background: rgba(255,255,255,0.22); }
+    .btn-lang {
+      background: #fef3c7;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .btn-lang:hover { background: #fde68a; }
+    .btn-primary {
+      background: #10b981;
+      border-color: #10b981;
+      color: #052e16;
+    }
+    .btn-primary:hover { background: #34d399; }
+
+    .layout {
+      max-width: 1240px;
+      margin: 24px auto 48px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 72px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .toc h3 {
+      margin: 0 0 10px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+    }
+    .toc ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .toc a {
+      display: block;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 13px;
+      padding: 6px 8px;
+      border-radius: 6px;
+    }
+    .toc a:hover { background: var(--primary-soft); color: var(--primary); font-weight: 600; }
+    .toc-note {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .paper {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 40px 48px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .brand-left { display: flex; align-items: center; gap: 14px; }
+    .brand-logo { height: 52px; width: auto; border-radius: 8px; object-fit: contain; }
+    .brand-meta { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+    .brand-meta strong { color: #0b3b24; font-size: 14px; }
+    .status-pill {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fcd34d;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .doc-header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 22px;
+      margin-bottom: 24px;
+    }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--primary-light);
+      margin-bottom: 8px;
+    }
+    h1 { margin: 0 0 8px; font-size: 25px; line-height: 1.28; color: #0b3b24; }
+    .subtitle { margin: 0 0 18px; font-size: 14.5px; color: var(--muted); }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .stat-card {
+      background: var(--primary-soft);
+      border: 1px solid #b7e4c7;
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .stat-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--primary); }
+    .stat-value { font-size: 16px; font-weight: 800; color: #0b3b24; margin-top: 3px; }
+    .stat-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    h2 {
+      margin: 32px 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e5e7eb;
+      font-size: 19px;
+      color: var(--primary);
+      scroll-margin-top: 76px;
+    }
+    h3 { margin: 20px 0 8px; font-size: 15.5px; color: #111827; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 0 0 14px; padding-left: 22px; }
+    li { margin-bottom: 6px; }
+
+    .callout {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 14px 0 18px;
+    }
+    .callout-attach {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      border-left: 4px solid #d97706;
+      padding: 13px 16px;
+      border-radius: 8px;
+      margin: 16px 0 22px;
+      font-size: 13.8px;
+    }
+    .formula-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 12px 0 16px;
+      font-family: "Cambria Math", Georgia, serif;
+      font-size: 15.5px;
+      text-align: center;
+      color: #064e3b;
+    }
+
+    .meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-size: 14px;
+    }
+    .meta-table th {
+      width: 28%;
+      text-align: left;
+      background: #f9fafb;
+      color: #374151;
+      font-weight: 700;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .meta-table td { padding: 9px 12px; border: 1px solid var(--border); vertical-align: top; }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 20px;
+      font-size: 13.5px;
+    }
+    table.data-table thead th {
+      background: var(--primary);
+      color: #fff;
+      text-align: left;
+      padding: 10px 11px;
+      border: 1px solid var(--primary);
+      font-weight: 700;
+    }
+    table.data-table td { padding: 9px 11px; border: 1px solid var(--border); vertical-align: top; }
+    table.data-table tbody tr:nth-child(even) { background: #f9fafb; }
+    table.data-table tr.total-row td {
+      background: var(--primary-soft);
+      font-weight: 800;
+      color: #0b3b24;
+      border-top: 2px solid var(--primary);
+    }
+    .num { text-align: right; white-space: nowrap; }
+    .pos { color: #15803d; font-weight: 700; }
+
+    .toc-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 14px 0 20px;
+    }
+    .flow-step {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-top: 4px solid var(--primary-light);
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 13px;
+    }
+    .flow-step strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 5px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .win-box {
+      background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+      border: 1px solid #86efac;
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 960px) {
+      .layout { grid-template-columns: 1fr; padding: 0 12px; margin-top: 14px; }
+      .toc { position: static; padding: 14px; }
+      .paper { padding: 20px 16px; border-radius: 10px; }
+      .stats-grid, .toc-flow { grid-template-columns: repeat(2, 1fr); }
+      h1 { font-size: 20px; }
+      table.data-table, table.meta-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    }
+    @media (max-width: 560px) {
+      .stats-grid, .toc-flow { grid-template-columns: 1fr; }
+    }
+    @media print {
+      body { background: #fff; font-size: 10.5pt; }
+      .toolbar, .toc { display: none !important; }
+      .layout { display: block; max-width: 100%; margin: 0; padding: 0; }
+      .paper { border: none; box-shadow: none; padding: 0; }
+      h2 { page-break-after: avoid; }
+      table, .callout, .formula-box, .win-box { page-break-inside: avoid; }
+      table.data-table thead th, .stat-card, .win-box, .status-pill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="toolbar-title">
+    <span class="badge-fund">Quỹ 1 · PAA</span>
+    <span>Bản Tiếng Việt cho Team Review (Khớp 100% Bản Nộp Tiếng Anh)</span>
+  </div>
+  <div class="toolbar-actions">
+    <a class="btn" href="./index.html">← Trang tổng hợp</a>
+    <a class="btn btn-lang" href="./paa.html">🇬🇧 Xem bản Tiếng Anh (Nộp quỹ)</a>
+    <button class="btn btn-primary" onclick="window.print()">🖨️ In / Xuất PDF (A4)</button>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="toc">
+    <h3>Mục lục hồ sơ (TV)</h3>
+    <ol>
+      <li><a href="#sec-1">1. Hồ sơ Pháp nhân &amp; Thông tin dự án</a></li>
+      <li><a href="#sec-2">2. Tóm tắt Điều hành</a></li>
+      <li><a href="#sec-3">3. Bài toán &amp; Nút thắt Hệ thống</a></li>
+      <li><a href="#sec-4">4. Giải pháp, Kinh tế hộ &amp; MRV</a></li>
+      <li><a href="#sec-5">5. Lý thuyết Thay đổi &amp; Nhân rộng</a></li>
+      <li><a href="#sec-6">6. Bộ Chỉ số KPI (18 tháng)</a></li>
+      <li><a href="#sec-7">7. Kế hoạch Triển khai 4 Giai đoạn</a></li>
+      <li><a href="#sec-8">8. Dự toán Ngân sách (S$220.000)</a></li>
+      <li><a href="#sec-9">9. Quản trị, IP Sạch &amp; Rủi ro</a></li>
+      <li><a href="#sec-10">10. 5 Lý do Hồ sơ này Thắng Quỹ</a></li>
+    </ol>
+    <div class="toc-note">
+      <strong>Đơn vị chủ trì:</strong><br/>
+      Công ty TNHH Công nghệ Mekong Green AI<br/>
+      MST: <code>1602238040</code><br/>
+      Long Xuyên, An Giang<br/>
+      <strong>Hạn nộp PAA:</strong> 31/12/2026
+    </div>
+  </aside>
+
+  <main class="paper">
+    <div class="brand-bar">
+      <div class="brand-left">
+        <img src="./logo-mekong-green-ai.png" alt="Logo Mekong Green AI" class="brand-logo" onerror="this.style.display='none'" />
+        <div class="brand-meta">
+          <strong>Công ty TNHH Công nghệ Mekong Green AI</strong> (MEGATECH AI)<br/>
+          MST: 1602238040 · 183 Hà Huy Tập, P. Long Xuyên, An Giang · www.megatechaiag.com
+        </div>
+      </div>
+      <span class="status-pill">🇻🇳 Bản Tiếng Việt — Team Review</span>
+    </div>
+
+    <header class="doc-header">
+      <div class="eyebrow">Philanthropy Asia Alliance (PAA) · Sustainable Land Use Community (SLC) · Hạng mục 2</div>
+      <h1>Mekong Rice AI: Thí điểm quản lý tưới thông minh do HTX làm chủ và đo lường hiệu quả canh tác lúa giảm phát thải tại Đồng bằng sông Cửu Long</h1>
+      <p class="subtitle">Thí điểm xúc tác tại tỉnh An Giang gắn trực tiếp với Đề án 1 triệu ha lúa chất lượng cao, phát thải thấp (Quyết định 1490/QĐ-TTg)</p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Đề xuất Quỹ PAA</div>
+          <div class="stat-value">S$220.000</div>
+          <div class="stat-sub">~USD 165k (+ S$45k đối ứng)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Quy mô Đối chứng</div>
+          <div class="stat-value">150 Hecta</div>
+          <div class="stat-sub">100 ha AWD vs. 50 ha Đối chứng</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Số hộ &amp; Thời gian</div>
+          <div class="stat-value">120 Hộ nông dân</div>
+          <div class="stat-sub">18 tháng · 2 vụ trọn vẹn</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Hạn nộp hồ sơ</div>
+          <div class="stat-value">31/12/2026</div>
+          <div class="stat-sub">Địa bàn: Tỉnh An Giang</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="callout-attach">
+      <strong>2 giấy tờ đối tác cần đính kèm cùng bản tiếng Anh khi nộp lên cổng PAA:</strong>
+      (1) <strong>Thư cam kết / MoU song ngữ</strong> đã ký đóng dấu của 01 HTX lúa có ô bao khép kín tại An Giang (mẫu đã điền sẵn pháp nhân Mekong Green AI trong file <code>00_Pre_Submission_Checklist...md</code>); và (2) <strong>Thư phối hợp khoa học</strong> của đơn vị đo kiểm/nghiên cứu (ĐH An Giang – ĐHQG-HCM / ĐH Cần Thơ / Viện Lúa ĐBSCL – CLRRI). Toàn bộ nội dung đề xuất, bảng kinh tế và ngân sách dưới đây đã hoàn chỉnh.
+    </div>
+
+    <section id="sec-1">
+      <h2>1. Hồ sơ Pháp nhân &amp; Thông tin Tổng quan Dự án</h2>
+      <table class="meta-table">
+        <tr><th>Tên pháp nhân chủ trì</th><td><strong>Công ty TNHH Công nghệ Mekong Green AI</strong> (<em>Mekong Green AI Technology Co., Ltd.</em>)</td></tr>
+        <tr><th>Thương hiệu &amp; Loại hình</th><td>MEGATECH AI / Mekong Green AI — Doanh nghiệp công nghệ định hướng tác động xã hội &amp; môi trường (Đại diện pháp luật là nữ)</td></tr>
+        <tr><th>Mã số doanh nghiệp / MST</th><td><code>1602238040</code> — Đăng ký lần đầu ngày 28/10/2026 (Tỉnh An Giang, Việt Nam)</td></tr>
+        <tr><th>Ban lãnh đạo</th><td><strong>Bà Nguyễn Thị Ngọc Bích</strong> (Giám đốc, Người đại diện theo pháp luật) · <strong>Ông Đoàn Quân Bảo</strong> (Chủ tịch Hội đồng thành viên)</td></tr>
+        <tr><th>Trụ sở chính</th><td>183 Hà Huy Tập, phường Long Xuyên, tỉnh An Giang, Việt Nam</td></tr>
+        <tr><th>Thông tin liên hệ</th><td>Email: <code>contact@megatechaiag.com</code> · ĐT ĐK: <code>0367.533.230</code> · Hotline: <code>0858.300.789</code> · Web: <a href="https://www.megatechaiag.com" target="_blank">www.megatechaiag.com</a></td></tr>
+        <tr><th>Địa bàn triển khai</th><td>Tỉnh An Giang, ĐBSCL — 01 ô bao thủy lợi khép kín quy mô <strong>150 ha / 120 hộ nông dân</strong> (&ge;35% phụ nữ đồng quản lý/tham gia đào tạo)</td></tr>
+        <tr><th>Liên minh Đối tác</th><td><strong>HTX thí điểm địa phương:</strong> HTX Nông nghiệp trồng lúa vùng trọng điểm phát thải thấp tại An Giang (Thoại Sơn / Châu Thành / Tri Tôn — đính kèm Thư cam kết).<br/><strong>Đối tác khoa học &amp; MRV:</strong> Đơn vị nghiên cứu nông nghiệp ĐBSCL (ĐH An Giang – ĐHQG-HCM / ĐH Cần Thơ / Viện Lúa ĐBSCL) phụ trách gặt mẫu thống kê và hiệu chuẩn buồng khí tĩnh CH<sub>4</sub> độc lập.</td></tr>
+      </table>
+    </section>
+
+    <section id="sec-2">
+      <h2>2. Tóm tắt Điều hành (Executive Summary)</h2>
+      <div class="callout">
+        <p>Đồng bằng sông Cửu Long đóng góp trên 50% sản lượng lúa và 90% lượng gạo xuất khẩu của Việt Nam, riêng tỉnh An Giang đạt trên 4 triệu tấn lúa/năm. Tuy nhiên, tập quán tưới ngập liên tục truyền thống tạo ra gần một nửa lượng phát thải khí mê-tan (CH<sub>4</sub>) nông nghiệp, đồng thời đẩy chi phí bơm tưới, sử dụng phân thuốc và rủi ro biên lợi nhuận của nông hộ lên cao. Dù kỹ thuật tưới ngập khô xen kẽ (AWD) đã được chứng minh khoa học giúp tiết kiệm 20–30% lượng nước và giảm 30–48% phát thải CH<sub>4</sub>, việc áp dụng ở quy mô HTX vẫn tắc nghẽn do 3 nút thắt hệ thống: (1) nông dân sợ giảm năng suất nếu không có công cụ theo dõi mực nước đáng tin cậy; (2) HTX thiếu phần mềm quản trị chi phí thấp để điều phối lịch bơm, nhật ký vật tư và dịch vụ drone trên các thửa ruộng manh mún; và (3) doanh nghiệp thu mua/tài chính khí hậu thiếu dữ liệu cấp thửa ruộng minh bạch để kiểm chứng.</p>
+        <p style="margin-bottom:0;"><strong>Mekong Rice AI</strong> do <strong>Công ty TNHH Công nghệ Mekong Green AI</strong> (đặt trụ sở tại Long Xuyên, An Giang) chủ trì sẽ lấp đầy khoảng trống khâu cuối bằng hệ thống tích hợp giữa <strong>MGA Coop360</strong> (nền tảng quản trị HTX đã hoạt động với 11 nghiệp vụ cốt lõi) và <strong>FarmUAV</strong> (chụp ảnh UAV phát hiện stress cây trồng/phân bố nước và điều phối dịch vụ drone dùng chung). Trong <strong>18 tháng</strong> (2 vụ lúa liên tiếp: Đông Xuân &amp; Hè Thu), dự án triển khai thí điểm có đối chứng trên <strong>150 ha</strong> (<strong>100 ha áp dụng AWD vs. 50 ha Đối chứng ngập liên tục</strong>, <strong>120 hộ</strong>) tại An Giang. Thay vì bán cho nông dân một ứng dụng "carbon trừu tượng", dự án lấy <strong>3 chỉ số cốt lõi là lượng nước tưới, năng suất lúa (14% ẩm độ) và lợi nhuận ròng của hộ</strong> làm trọng tâm, kết hợp <strong>phương pháp đo/ước tính CH<sub>4</sub> có đối chứng chuẩn IPCC 2019 Tier 2 + hiệu chuẩn buồng khí tĩnh</strong>. Khoản tài trợ xúc tác <strong>S$220.000 (~USD 165.000)</strong> từ PAA sẽ kiểm chứng mô hình phí dịch vụ HTX tự chủ tài chính (~350.000 đồng / USD 14/ha/vụ) để nhân rộng trực tiếp trong <em>Đề án 1 triệu ha lúa chất lượng cao ĐBSCL</em> và các đồng bằng lúa Đông Nam Á.</p>
+      </div>
+    </section>
+
+    <section id="sec-3">
+      <h2>3. Bài toán Thực tiễn &amp; Nút thắt Hệ thống tại Đông Nam Á</h2>
+      <ol>
+        <li><strong>Lãng phí nước &amp; Chi phí bơm tưới tăng cao:</strong> Tưới ngập liên tục tiêu tốn 1.200–1.500 m&sup3; nước/tấn lúa (7.500–9.500 m&sup3;/ha/vụ). Biến động nguồn nước thượng nguồn và giá điện/dầu đẩy chi phí bơm của HTX lên <strong>1,2–2,0 triệu đồng/ha/vụ (~USD 48–80/ha)</strong>.</li>
+        <li><strong>Phát thải CH<sub>4</sub> cao &amp; Lạm dụng vật tư:</strong> Ngập kỵ khí liên tục phát thải khoảng <strong>4,5–6,5 tCO<sub>2</sub>e/ha/vụ</strong> (nhất là khi vùi rơm ướt), kèm tâm lý phun phòng 5–7 lần/vụ và bón thừa đạm (110–130 kg N/ha) làm bào mòn lợi nhuận hộ nông dân.</li>
+        <li><strong>Khoảng trống vận hành &amp; kiểm chứng ở cấp HTX:</strong> Theo Quyết định <code>1490/QĐ-TTg</code>, Việt Nam đặt mục tiêu 1 triệu ha lúa phát thải thấp vào năm 2030. Tuy nhiên, đa số HTX vẫn ghi sổ giấy hồi tố, nông dân không nhìn thấy mực nước ngầm để yên tâm rút nước, và nhà máy xay xát không có dữ liệu kiểm chứng chi phí thấp để trả thưởng giá.</li>
+      </ol>
+      <p><strong>Vì sao nguồn vốn xúc tác của PAA là quyết định:</strong> Nhà đầu tư thương mại chỉ rót vốn khi đã có bằng chứng đa mùa vụ rằng AWD không làm giảm năng suất và HTX sẵn sàng trả phí dịch vụ. Vốn xúc tác PAA giúp vượt qua "thung lũng chết" này bằng việc tài trợ thử nghiệm đối chứng 2 vụ, tích hợp mô-đun lúa AWD/MRV vào nền tảng Coop360 đã có và kiểm chứng dòng tiền thu phí HTX + liên kết đầu ra.</p>
+    </section>
+
+    <section id="sec-4">
+      <h2>4. Giải pháp Kỹ thuật, Kinh tế Hộ &amp; Phương pháp Đo Phát thải MRV</h2>
+      <h3>4.1 Kiến trúc Tích hợp: MGA Coop360 + FarmUAV + Tưới AWD An toàn</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:16%;">Lớp hệ thống</th>
+            <th style="width:23%;">Thành phần công cụ</th>
+            <th style="width:42%;">Chức năng vận hành tại HTX An Giang</th>
+            <th style="width:19%;">Mức độ sẵn sàng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Lõi số hóa HTX</strong></td>
+            <td><strong>MGA Coop360</strong><br/>(PWA Di động: Next.js 14+, Java 17 / Spring Boot, PostgreSQL)</td>
+            <td>Quản lý hộ &amp; bản đồ lô GPS (<code>UC-01</code>), hộ chiếu mùa vụ (<code>UC-02</code>), điều phối kế hoạch (<code>UC-03</code>), nhật ký đồng ruộng offline (<code>UC-04</code>), kho vật tư (<code>UC-05</code>), <strong>cảnh báo ngày cách ly thuốc BVTV PHI</strong> (<code>UC-06</code>), chốt sản lượng (<code>UC-07</code>), kiểm định KCS/ẩm độ (<code>UC-08</code>), truy xuất QR (<code>UC-09</code>), thời tiết 7 ngày Open-Meteo (<code>UC-10</code>), đặt lịch drone (<code>UC-11</code>).</td>
+            <td><strong>Mẫu thử đã chạy thực tế</strong> (11 nghiệp vụ cốt lõi; bổ sung mô-đun lúa AWD &amp; MRV ở GĐ1)</td>
+          </tr>
+          <tr>
+            <td><strong>2. Giám sát mực nước &amp; Tưới</strong></td>
+            <td><strong>Ống AWD + 18 Cảm biến mực nước + 4 Đồng hồ bơm</strong></td>
+            <td>Lắp 180 ống PVC đục lỗ AWD (ngưỡng &minus;15 cm dưới mặt đất để nông dân tự kiểm chứng bằng mắt) kết hợp 18 cảm biến siêu âm/áp suất dùng pin mặt trời &amp; 4 đồng hồ kWh/lưu lượng trạm bơm. Kết hợp dự báo mưa 7 ngày để đẩy cảnh báo tiếng Việt dễ hiểu <em>“An toàn để rút nước / Đến lúc bơm nước”</em> qua app &amp; Zalo/SMS.</td>
+            <td><strong>API Thời tiết đã chạy</strong>; triển khai IoT &amp; cầu Zalo/SMS trong Tháng 1–3</td>
+          </tr>
+          <tr>
+            <td><strong>3. Ảnh bay UAV &amp; Dịch vụ chung</strong></td>
+            <td><strong>FarmUAV</strong><br/>(Ảnh đa phổ/RGB + Điều phối Drone HTX)</td>
+            <td>Thực hiện <strong>4 đợt bay chụp/vụ</strong> trên toàn bộ 150 ha (đầu vụ/san phẳng, đẻ nhánh, làm đòng/trổ, trước thu hoạch) tạo bản đồ NDVI/NDWI cảnh báo sớm điểm khô hạn, lún/đổ ngã hoặc sâu bệnh trước 7–10 ngày — xóa tâm lý lo mất mùa khi rút nước — đồng thời gom lịch phun/sạ chính xác qua <code>UC-11</code>.</td>
+            <td><strong>Đặt lịch Drone đã có trên Coop360</strong>; tích hợp bản đồ NDVI trong Tháng 1–3</td>
+          </tr>
+          <tr>
+            <td><strong>4. Sổ Kinh tế Hộ &amp; MRV</strong></td>
+            <td><strong>Mô-đun MGA SmartRice MRV &amp; Lợi nhuận hộ</strong></td>
+            <td>Tự động tổng hợp nhật ký bơm, hóa đơn vật tư, công lao động, phiếu cân nhà máy để tính <strong>Lượng nước (m&sup3;/ha), Năng suất (tấn/ha), Lợi nhuận ròng (VNĐ/ha)</strong> và <strong>Giảm phát thải CH<sub>4</sub> có đối chứng (tCO<sub>2</sub>e/ha)</strong> thành hồ sơ kiểm toán theo từng lô lúa.</td>
+            <td><strong>Đã thiết kế</strong>; lập trình &amp; hiệu chuẩn thực địa Tháng 1–6</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>4.2 Ba Chỉ số Chính &amp; Bảng Kinh tế Đơn vị / ha / vụ (Chuẩn An Giang)</h3>
+      <div class="formula-box">
+        <strong>Lợi nhuận ròng</strong> = (Năng suất chuẩn 14% &times; Giá bán tại ruộng) &minus; (Giống + Phân bón + Thuốc BVTV + Bơm tưới + Drone/Cơ giới + Công thuê)
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:36%;">Khoản mục Chi phí / Doanh thu (1 ha / 1 vụ)</th>
+            <th class="num" style="width:22%;">Lô Đối chứng (Ngập liên tục)</th>
+            <th class="num" style="width:22%;">Lô Thí điểm (Mekong Rice AI)</th>
+            <th class="num" style="width:20%;">Chênh lệch</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Chi phí bơm tưới (Điện / Dầu)</td><td class="num">1.600.000 đ ($64)</td><td class="num">1.150.000 đ ($46)</td><td class="num pos">&minus;28% (&minus;$18)</td></tr>
+          <tr><td>Lúa giống (Giảm mật độ sạ chính xác)</td><td class="num">2.100.000 đ ($84)</td><td class="num">1.650.000 đ ($66)</td><td class="num pos">&minus;21% (&minus;$18)</td></tr>
+          <tr><td>Phân bón &amp; Thuốc BVTV (Theo ảnh UAV &amp; PHI)</td><td class="num">9.800.000 đ ($392)</td><td class="num">8.450.000 đ ($338)</td><td class="num pos">&minus;14% (&minus;$54)</td></tr>
+          <tr><td>Dịch vụ Drone / Cơ giới &amp; Công thuê</td><td class="num">7.500.000 đ ($300)</td><td class="num">7.350.000 đ ($294)</td><td class="num pos">&minus;2% (&minus;$6)</td></tr>
+          <tr><td>Phí dịch vụ Coop360 + FarmUAV (sau tài trợ)</td><td class="num">0 đ ($0)</td><td class="num">350.000 đ ($14)</td><td class="num">+$14 (Tự trang trải)</td></tr>
+          <tr><td><strong>Tổng chi phí sản xuất</strong></td><td class="num"><strong>21.000.000 đ ($840)</strong></td><td class="num"><strong>18.950.000 đ ($758)</strong></td><td class="num pos">&minus;9,8% (&minus;$82/ha)</td></tr>
+          <tr><td><strong>Doanh thu</strong> (6,5 tấn/ha @ 6.500 vs. 6.700 đ/kg)</td><td class="num"><strong>42.250.000 đ ($1.690)</strong></td><td class="num"><strong>43.550.000 đ ($1.742)</strong></td><td class="num pos">+3,1% (+$52/ha)</td></tr>
+          <tr class="total-row">
+            <td>LỢI NHUẬN RÒNG HỘ / HA / VỤ</td>
+            <td class="num">21.250.000 đ ($850)</td>
+            <td class="num">24.600.000 đ ($984)</td>
+            <td class="num">+15,8% (+$134/ha)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:13.5px; color:var(--muted);"><em>Tỷ giá tham chiếu: 25.000 VNĐ = 1 USD. Lưu ý quan trọng: <strong>ngay cả khi chưa có thưởng giá bán gạo</strong>, chỉ riêng tiết kiệm chi phí đã tăng lợi nhuận ròng <strong>+2,05 triệu đ/ha (~+$82/ha/vụ)</strong> — gấp gần 6 lần mức phí dịch vụ HTX 350.000 đ/ha/vụ!</em></p>
+
+      <h3>4.3 Phương pháp Đo &amp; Ước tính Phát thải CH<sub>4</sub> Có Đối chứng (Không tô xanh)</h3>
+      <ul>
+        <li><strong>Thiết kế ghép cặp trong cùng 1 ô bao khép kín:</strong> <strong>100 ha Thí điểm</strong> (~80 hộ áp dụng AWD an toàn + thu gom/xử lý rơm) đặt cạnh <strong>50 ha Đối chứng</strong> (~40 hộ canh tác ngập liên tục) — cùng đất phù sa, cùng giống lúa (OM18 / Đài Thơm 8), cùng tuần xuống giống và cùng thời tiết.</li>
+        <li><strong>Định lượng diện rộng chuẩn IPCC 2019 Tier 2 / IRRI SECTOR:</strong> Dữ liệu số ngày ngập/rút nước hàng ngày từ 18 cảm biến + ảnh chụp ống AWD gắn tọa độ GPS &amp; dấu thời gian trên Coop360 được đưa vào công thức IPCC:</li>
+      </ul>
+      <div class="formula-box">
+        <strong>EF<sub>i</sub></strong> = EF<sub>c</sub> &times; SF<sub>w</sub> &times; SF<sub>p</sub> &times; SF<sub>o</sub>
+        <div style="font-family: sans-serif; font-size: 12.5px; color: #374151; margin-top: 6px;">
+          <em>EF<sub>c</sub></em>: hệ số phát thải nền ngập liên tục ĐBSCL; <em>SF<sub>w</sub></em>: hệ số điều chỉnh chế độ rút nước nhiều đợt; <em>SF<sub>p</sub></em>: hệ số chế độ nước tiền mùa vụ; <em>SF<sub>o</sub></em>: hệ số quản lý rơm rạ/hữu cơ.
+        </div>
+      </div>
+      <ul>
+        <li><strong>Hiệu chuẩn thực nghiệm bằng buồng khí tĩnh (Static Closed-Chamber):</strong> Chuyên gia đối tác nghiên cứu (ĐH An Giang / ĐH Cần Thơ / Viện Lúa ĐBSCL) lấy mẫu khí sắc ký trên <strong>8 cặp ô phụ Thí điểm/Đối chứng</strong> vào các thời điểm rút nước &amp; cấp nước lại để hiệu chuẩn hệ số địa phương và công bố khoảng tin cậy &plusmn;95%.</li>
+        <li><strong>Chống gian lận dữ liệu (Audit Trail):</strong> Mỗi đợt rút nước AWD phải có kiểm chứng kép (biểu đồ cảm biến IoT hoặc ảnh ống AWD có GPS/thời gian trên Coop360 + ảnh trực giao UAV kiểm tra mặt nước ruộng), khớp chuẩn MRV của Quyết định <code>1490/QĐ-TTg</code>.</li>
+      </ul>
+    </section>
+
+    <section id="sec-5">
+      <h2>5. Lý thuyết Thay đổi, Tự chủ Tài chính &amp; Lộ trình Nhân rộng</h2>
+      <div class="toc-flow">
+        <div class="flow-step"><strong>1. NẾU (Can thiệp)</strong>HTX tại An Giang vận hành Coop360 + FarmUAV + công cụ tưới AWD an toàn ngay trong công việc hằng ngày.</div>
+        <div class="flow-step"><strong>2. VÀ (Chứng minh)</strong>2 vụ đối chứng chứng minh giảm chi phí bơm/phân thuốc, không giảm năng suất, chuẩn PHI 100% &amp; tăng lãi +12–20%.</div>
+        <div class="flow-step"><strong>3. THÌ (Tự duy trì)</strong>Nông dân tự nguyện duy trì AWD và trả phí gói ~350k đ/ha (&lt;12% phần lãi thêm), tạo dữ liệu MRV &amp; QR minh bạch.</div>
+        <div class="flow-step"><strong>4. ĐỂ RỒI (Nhân rộng)</strong>Nhà máy xay xát &amp; tài chính xanh thu mua ưu tiên — nhân rộng khắp Đề án 1 triệu ha ĐBSCL và khu vực ĐNÁ.</div>
+      </div>
+      <ul>
+        <li><strong>Mô hình doanh thu tự chủ sau tài trợ:</strong> HTX thu hộ gói dịch vụ tích hợp <strong>350.000 đ/ha/vụ (~USD 14)</strong> khi quyết toán cuối vụ (chiếm &lt;12% phần lợi nhuận tăng thêm của nông dân) để duy trì phần mềm, bay UAV định kỳ và lập báo cáo MRV; cộng thêm nguồn thu B2B từ doanh nghiệp xuất khẩu gạo trả phí API truy xuất lô lúa phát thải thấp (USD 3–5/tấn).</li>
+        <li><strong>Ngăn chặn rò rỉ phát thải &amp; tái ngập:</strong> Tăng lợi nhuận ròng trên chính diện tích cũ giúp nông dân không có động cơ mở rộng đất hay quay lại tưới ngập; vận hành theo toàn ô bao ngăn thấm ngang từ ruộng lân cận.</li>
+        <li><strong>Lộ trình Năm 2–5:</strong> Năm 2 mở rộng ra 8–12 HTX (2.000–3.500 ha) tại An Giang, Đồng Tháp, Cần Thơ thông qua Liên minh HTX tỉnh và gọi tiếp vốn kiểm chứng quy mô lớn (<strong>FID / USAID DIV</strong>); Năm 3–5 chia sẻ bộ chuẩn mở <code>CC BY 4.0</code> sang Campuchia và Thái Lan.</li>
+      </ul>
+    </section>
+
+    <section id="sec-6">
+      <h2>6. Bộ Chỉ số Mục tiêu KPI (18 Tháng)</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:17%;">Nhóm chỉ số</th>
+            <th style="width:24%;">Chỉ số đánh giá (KPI)</th>
+            <th style="width:19%;">Nền / Đối chứng</th>
+            <th style="width:21%;">Mục tiêu 18 tháng</th>
+            <th style="width:19%;">Phương pháp kiểm chứng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Hiệu quả nước</strong><br/><em>(Chính)</em></td><td>Lượng nước tưới (m&sup3;/ha) &amp; chi phí bơm</td><td>50 ha Đối chứng + Khảo sát nền</td><td><strong>Giảm 20–30%</strong> lượng nước &amp; điện/dầu bơm</td><td>4 đồng hồ kWh/lưu lượng + 18 cảm biến + nhật ký Coop360</td></tr>
+          <tr><td><strong>Năng suất lúa</strong><br/><em>(Chính)</em></td><td>Năng suất chuẩn (tấn/ha @ 14% ẩm độ)</td><td>Lô Đối chứng (6,0–7,5 ĐX; 5,0–6,2 HT)</td><td><strong>Không thấp hơn đến +5%</strong> (đảm bảo &ge;0% hao hụt)</td><td>45+ điểm gặt mẫu/vụ + phiếu cân/KCS (<code>UC-07/08</code>)</td></tr>
+          <tr><td><strong>Lợi nhuận hộ</strong><br/><em>(Chính)</em></td><td>Lợi nhuận ròng (VNĐ &amp; USD/ha/vụ)</td><td>Đối soát hóa đơn Lô Đối chứng</td><td><strong>Tăng +12% đến +20%</strong> (+USD 90–160/ha/vụ)</td><td>Sổ thu chi số trên Coop360 đối chiếu chứng từ</td></tr>
+          <tr><td><strong>Giảm phát thải</strong><br/><em>(Có đối chứng)</em></td><td>Cường độ CH<sub>4</sub> (tCO<sub>2</sub>e/ha/vụ)</td><td>Lô Đối chứng (IPCC Tier 2 + buồng khí)</td><td><strong>Giảm 30–40%</strong> (~450–750 tCO<sub>2</sub>e qua 2 vụ)</td><td>Biểu đồ mực nước + IPCC Tier 2 + 8 điểm buồng khí tĩnh</td></tr>
+          <tr><td><strong>An toàn vật tư</strong></td><td>Chi phí phân thuốc &amp; tuân thủ cách ly PHI</td><td>Nhật ký vật tư Đối chứng</td><td><strong>Giảm 10–15%</strong> chi phí; <strong>100% đạt chuẩn PHI</strong></td><td>Cảnh báo PHI trên Coop360 (<code>UC-06</code>) + nhật ký UAV</td></tr>
+          <tr><td><strong>Độ phủ &amp; Giới</strong></td><td>Diện tích, số hộ &amp; vai trò phụ nữ</td><td>0 ha AWD số hóa</td><td><strong>150 ha</strong> (100T/50ĐC); <strong>120 hộ</strong> (&ge;35% nữ); &ge;85% ghi nhật ký</td><td>Thống kê hệ thống, danh sách tập huấn, khảo sát</td></tr>
+          <tr><td><strong>Thương mại hóa</strong></td><td>Lúa có mã QR bán được &amp; tỷ lệ giữ chân</td><td>0% lô lúa QR phát thải thấp</td><td><strong>&ge;65% sản lượng</strong> bán kèm QR+MRV; <strong>&ge;75%</strong> cam kết phí vụ 3</td><td>Hợp đồng bao tiêu, log quét QR, khảo sát WTP</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="sec-7">
+      <h2>7. Kế hoạch Triển khai 18 Tháng (4 Giai đoạn)</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:22%;">Giai đoạn &amp; Thời gian</th>
+            <th style="width:45%;">Hạng mục công việc trọng tâm</th>
+            <th style="width:33%;">Cột mốc bàn giao (Milestones)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GĐ 1: Chuẩn bị &amp; Nền</strong><br/>Tháng 1–3</td>
+            <td>Ký MoU triển khai với HTX An Giang &amp; hợp đồng đối tác nghiên cứu; số hóa bản đồ GPS 150 ha trong ô bao; lập trình mô-đun Coop360 AWD, sổ lợi nhuận, IPCC Tier 2 &amp; xem ảnh NDVI FarmUAV; lắp 180 ống AWD, 18 cảm biến &amp; 4 đồng hồ bơm; khảo sát nền vụ 0.</td>
+            <td>• M1: Ký đủ MoU HTX &amp; Đối tác khoa học.<br/>• M2: Số hóa 150 ha + Báo cáo nền.<br/>• M3: Coop360-AWD v1.0 &amp; quy trình UAV sẵn sàng.</td>
+          </tr>
+          <tr>
+            <td><strong>GĐ 2: Thí điểm Vụ 1 (Đông Xuân)</strong><br/>Tháng 4–9</td>
+            <td>Tập huấn 120 hộ (&ge;35% nữ) &amp; 6 thanh niên "hạt nhân số" HTX; vận hành cảnh báo AWD qua Zalo/app; bay 4 đợt FarmUAV + điều phối drone chung; gặt 45+ điểm mẫu, cân kiểm chứng, đối soát lợi nhuận &amp; đo sắc ký khí 8 cặp ô phụ.</td>
+            <td>• M4: Hoàn tất thu hoạch Vụ 1 &amp; cấp mã QR.<br/>• M5: Báo cáo đối chứng giữa kỳ (Nước, Năng suất, Lãi, CH<sub>4</sub>).</td>
+          </tr>
+          <tr>
+            <td><strong>GĐ 3: Tối ưu &amp; Vụ 2 (Hè Thu)</strong><br/>Tháng 10–15</td>
+            <td>Tinh chỉnh ngưỡng cảnh báo &amp; giao diện từ phản hồi Vụ 1; thử nghiệm trong điều kiện mùa mưa Hè Thu để chứng minh độ bền; bay 4 đợt FarmUAV &amp; đo buồng khí đợt 2; kết nối nhà máy xay xát mua lô lúa QR; thí điểm thu phí USD 14/ha.</td>
+            <td>• M6: Bộ dữ liệu đối chứng 2 vụ được kiểm chứng.<br/>• M7: Lô lúa giảm phát thải gắn QR đầu tiên được thương mại hóa.</td>
+          </tr>
+          <tr>
+            <td><strong>GĐ 4: Kiểm toán &amp; Nhân rộng</strong><br/>Tháng 16–18</td>
+            <td>Công bố Báo cáo Tác động &amp; Kinh tế 2 vụ có kiểm toán độc lập (kèm khoảng tin cậy &plusmn;95%); đồng tổ chức Hội thảo nhân rộng tại An Giang / ĐBSCL (Sở NN, Liên minh HTX, nhà máy, đối tác PAA); phát hành Cẩm nang mở song ngữ; ký 5–8 LOI nhân rộng.</td>
+            <td>• M8: Báo cáo kiểm toán tác động &amp; tài chính cuối kỳ.<br/>• M9: Cẩm nang mở (<code>CC BY 4.0</code>) + 5–8 HTX đăng ký nhân rộng.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="sec-8">
+      <h2>8. Dự toán Ngân sách 18 Tháng (SGD &amp; USD)</h2>
+      <p style="font-size:13.5px; color:var(--muted);"><em>Tỷ giá tham chiếu: 1 SGD &approx; 0,75 USD. Đề nghị Quỹ PAA tài trợ: <strong>S$220.000 (~USD 165.000)</strong>; Đối ứng hiện vật địa phương (Mekong Green AI &amp; HTX): <strong>S$45.000 (~USD 33.750)</strong>.</em></p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:27%;">Hạng mục chi phí</th>
+            <th class="num" style="width:12%;">Quỹ PAA (SGD)</th>
+            <th class="num" style="width:11%;">Quỹ PAA (USD)</th>
+            <th class="num" style="width:12%;">Đối ứng (SGD)</th>
+            <th style="width:38%;">Thuyết minh chi tiết</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>1. Phần mềm &amp; Tích hợp AI/UAV</strong></td><td class="num">S$58.000</td><td class="num">$43.500</td><td class="num">S$20.000</td><td>Mô-đun lịch tưới AWD, sổ lợi nhuận hộ, tính IPCC Tier 2, xem bản đồ NDVI FarmUAV, cầu nối Zalo/SMS, máy chủ cloud 18 tháng. <em>Đối ứng: mã nguồn lõi Coop360 có sẵn.</em></td></tr>
+          <tr><td><strong>2. Thiết bị IoT, AWD &amp; Bay UAV</strong></td><td class="num">S$44.000</td><td class="num">$33.000</td><td class="num">S$8.000</td><td>180 ống PVC AWD, 18 cảm biến mực nước siêu âm pin mặt trời/4G, 4 đồng hồ kWh/lưu lượng bơm, 8 đợt bay chụp đa phổ/RGB toàn bộ 150 ha qua 2 vụ.</td></tr>
+          <tr><td><strong>3. Kiểm chứng khoa học &amp; Buồng khí</strong></td><td class="num">S$36.000</td><td class="num">$27.000</td><td class="num">S$5.000</td><td>Hợp đồng đối tác nghiên cứu (ĐH An Giang / ĐH Cần Thơ / Viện Lúa): giám sát thí nghiệm, 90+ điểm gặt mẫu, kiểm tra ẩm độ/chất lượng, đo buồng khí tĩnh 8 cặp ô &amp; thẩm định độc lập.</td></tr>
+          <tr><td><strong>4. Tập huấn HTX &amp; Cán bộ đồng ruộng</strong></td><td class="num">S$42.000</td><td class="num">$31.500</td><td class="num">S$12.000</td><td>2 kỹ sư nông nghiệp bám địa bàn An Giang (18 tháng), phụ cấp 6 thanh niên số HTX, 8 lớp tập huấn đồng ruộng (có nhóm phụ nữ), bộ máy tính bảng văn phòng HTX.</td></tr>
+          <tr><td><strong>5. Kết nối đầu ra &amp; Cẩm nang mở</strong></td><td class="num">S$18.000</td><td class="num">$13.500</td><td class="num">S$0</td><td>Hội thảo kết nối nhà máy/xuất khẩu, thí điểm tem QR, Diễn đàn nhân rộng ĐBSCL, biên soạn Cẩm nang MRV lúa thông minh song ngữ Anh–Việt.</td></tr>
+          <tr><td><strong>6. Quản lý, Kiểm toán &amp; Dự phòng (10%)</strong></td><td class="num">S$22.000</td><td class="num">$16.500</td><td class="num">S$0</td><td>Điều phối dự án, kiểm toán tài chính độc lập theo chuẩn PAA, quỹ dự phòng thời tiết/thực địa.</td></tr>
+          <tr class="total-row">
+            <td>TỔNG GIÁ TRỊ: S$265.000 (~USD 198.750)</td>
+            <td class="num">S$220.000</td>
+            <td class="num">$165.000</td>
+            <td class="num">S$45.000</td>
+            <td>83% Quỹ PAA tài trợ / 17% Đối ứng địa phương</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="sec-9">
+      <h2>9. Quản trị, Bản quyền Sạch (Clean-Room IP) &amp; Quản lý Rủi ro</h2>
+      <h3>9.1 Đội ngũ Lãnh đạo &amp; Điều hành</h3>
+      <ul>
+        <li><strong>Bà Nguyễn Thị Ngọc Bích</strong> — Giám đốc, Người đại diện pháp luật Công ty TNHH Công nghệ Mekong Green AI (chủ trì quản trị tài trợ, tuân thủ tài chính và thúc đẩy sự tham gia của phụ nữ nông thôn).</li>
+        <li><strong>Ông Đoàn Quân Bảo</strong> — Chủ tịch HĐTV Công ty TNHH Công nghệ Mekong Green AI (phụ trách đối ngoại Liên minh HTX tỉnh, Sở Nông nghiệp và liên kết nhà máy xay xát).</li>
+        <li><strong>Đội ngũ Kỹ sư Phần mềm, AI &amp; UAV Mekong Green AI</strong> (Long Xuyên, An Giang) — phát triển Coop360/SmartRice, tích hợp IoT mực nước và vận hành FarmUAV.</li>
+        <li><strong>Cố vấn Khoa học &amp; Ban Giám đốc HTX</strong> — Chuyên gia nông học/khí nhà kính (ĐH An Giang / ĐH Cần Thơ / Viện Lúa) + Chủ tịch HTX thí điểm &amp; 6 thanh niên số.</li>
+      </ul>
+
+      <h3>9.2 Cam kết Bản quyền Sạch &amp; Chủ quyền Dữ liệu Nông dân</h3>
+      <p>Toàn bộ các mô-đun mới về cảnh báo tưới AWD, sổ lợi nhuận hộ, phân tích ảnh FarmUAV và tính toán MRV phát triển trong dự án là tài sản sở hữu sạch thuộc quyền quản lý độc lập của <strong>Công ty TNHH Công nghệ Mekong Green AI</strong>, không vướng tranh chấp bản quyền với bất kỳ đề tài bên thứ ba nào; bộ <em>Chuẩn dữ liệu &amp; Cẩm nang MRV lúa thông minh</em> sẽ phát hành theo giấy phép mở <code>CC BY 4.0</code>. Nông dân và HTX giữ toàn quyền sở hữu dữ liệu cá nhân/ruộng đồng; dữ liệu ẩn danh chỉ được chia sẻ có văn bản đồng thuận phục vụ thẩm định khoa học, truy xuất QR và báo cáo PAA.</p>
+
+      <h3>9.3 Bảng Quản trị Rủi ro</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th style="width:27%;">Rủi ro chính</th><th style="width:12%;">Mức độ</th><th style="width:61%;">Giải pháp giảm thiểu cụ thể</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Nông dân lo rút nước làm giảm năng suất / nhiều cỏ</strong></td><td>Cao</td><td>Áp dụng <em>AWD An toàn</em> (giữ nước giai đoạn mạ &amp; trổ bông); dùng ống PVC để nông dân tự thấy mực nước; bay FarmUAV cảnh báo sớm stress; công khai tiền bơm tiết kiệm ngay giữa vụ.</td></tr>
+          <tr><td><strong>Thấm nước ngang từ ruộng hàng xóm</strong></td><td>Cao</td><td>Chọn triển khai trọn vẹn trong 1 ô bao khép kín có trạm bơm tập trung tại An Giang thay vì ruộng rải rác.</td></tr>
+          <tr><td><strong>Nông dân lớn tuổi ngại dùng điện thoại thông minh</strong></td><td>Trung bình</td><td>Bố trí 6 thanh niên số địa phương hỗ trợ; dùng giao diện PWA tối giản offline + cảnh báo Zalo/SMS dễ đọc; cho phép cán bộ HTX ghi nhật ký bơm tập thể một lần cho cả cụm.</td></tr>
+          <tr><td><strong>Mưa trái mùa / biến động thủy văn</strong></td><td>Trung bình</td><td>Thử nghiệm trên 2 vụ khí hậu khác nhau (Đông Xuân khô &amp; Hè Thu mưa) và có Lô Đối chứng đặt ngay trong cùng ô bao để tách bạch yếu tố thời tiết.</td></tr>
+          <tr><td><strong>Năng lực kiểm soát tài chính công ty mới thành lập (10/2026)</strong></td><td>Thấp</td><td>Mở tài khoản ngân hàng dự án tách biệt hoàn toàn, giải ngân theo cột mốc nghiệm thu và thuê kiểm toán tài chính độc lập (đã bố trí sẵn ở Mục 6 ngân sách).</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="sec-10">
+      <h2>10. 5 Lý do Hồ sơ này Thuyết phục Hội đồng Quỹ PAA</h2>
+      <div class="win-box">
+        <ol style="margin-bottom:0;">
+          <li><strong>Đánh trúng tâm điểm Hạng mục 2 của PAA SLC:</strong> Giảm khí mê-tan lúa nước Đông Nam Á đồng thời nâng thu nhập nông hộ tại thủ phủ lúa số 1 Việt Nam (An Giang).</li>
+          <li><strong>Thuần túy do địa phương dẫn dắt &amp; đại diện pháp luật là nữ:</strong> Trụ sở đặt ngay tại Long Xuyên, An Giang — phục vụ thẳng Đề án 1 triệu ha lúa phát thải thấp.</li>
+          <li><strong>Kinh tế nông dân đi trước, khoa học MRV đi sau (0% tô xanh):</strong> Chứng minh nước – năng suất – lãi ròng +12–20% kèm đối chứng IPCC Tier 2 và buồng khí tĩnh độc lập.</li>
+          <li><strong>Nền tảng công nghệ đã chạy thực tế:</strong> Kế thừa trực tiếp 11 nghiệp vụ đã xây của <code>MGA Coop360</code>, giảm tối đa rủi ro trễ tiến độ kỹ thuật.</li>
+          <li><strong>Đường băng tự chủ &amp; nhân rộng rõ ràng:</strong> Phí dịch vụ HTX chỉ 350.000 đ/ha (&lt;12% lãi tăng thêm), mở khóa vốn nhân rộng tiếp theo (FID / USAID DIV).</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+</div>
+
+</body>
+</html>

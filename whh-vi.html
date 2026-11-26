@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hồ sơ Quỹ WHH Seeding The Future (Bản Tiếng Việt) — Mekong Rice AI</title>
+  <style>
+    :root {
+      --primary: #0f4c5c;
+      --primary-light: #1b7a8e;
+      --primary-soft: #e6f4f7;
+      --green: #15803d;
+      --green-soft: #dcfce7;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --border: #d1d5db;
+      --bg: #f3f4f6;
+      --card: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #0a3642;
+      color: #fff;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+    }
+    .toolbar-title {
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge-fund {
+      background: #0ea5e9;
+      color: #082f49;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .toolbar-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover { background: rgba(255,255,255,0.22); }
+    .btn-lang {
+      background: #fef3c7;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .btn-lang:hover { background: #fde68a; }
+    .btn-primary {
+      background: #38bdf8;
+      border-color: #38bdf8;
+      color: #082f49;
+    }
+    .btn-primary:hover { background: #7dd3fc; }
+
+    .layout {
+      max-width: 1240px;
+      margin: 24px auto 48px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 265px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 72px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .toc h3 {
+      margin: 0 0 10px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+    }
+    .toc ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .toc a {
+      display: block;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 13px;
+      padding: 5px 8px;
+      border-radius: 6px;
+    }
+    .toc a:hover { background: var(--primary-soft); color: var(--primary); font-weight: 600; }
+    .toc-divider {
+      margin: 10px 0 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--primary-light);
+    }
+    .toc-note {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .paper {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 40px 48px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .brand-left { display: flex; align-items: center; gap: 14px; }
+    .brand-logo { height: 52px; width: auto; border-radius: 8px; object-fit: contain; }
+    .brand-meta { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+    .brand-meta strong { color: #0a3642; font-size: 14px; }
+    .status-pill {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fcd34d;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .doc-header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 22px;
+      margin-bottom: 24px;
+    }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--primary-light);
+      margin-bottom: 8px;
+    }
+    h1 { margin: 0 0 8px; font-size: 24px; line-height: 1.28; color: #0a3642; }
+    .subtitle { margin: 0 0 16px; font-size: 14px; color: var(--muted); }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .stat-card {
+      background: var(--primary-soft);
+      border: 1px solid #a5d8e6;
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .stat-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--primary); }
+    .stat-value { font-size: 16px; font-weight: 800; color: #0a3642; margin-top: 3px; }
+    .stat-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    .part-banner {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      margin: 28px 0 18px;
+    }
+
+    h2 {
+      margin: 26px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e5e7eb;
+      font-size: 18px;
+      color: var(--primary);
+      scroll-margin-top: 76px;
+    }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 0 0 14px; padding-left: 22px; }
+    li { margin-bottom: 6px; }
+
+    .meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-size: 13.8px;
+    }
+    .meta-table th {
+      width: 28%;
+      text-align: left;
+      background: #f9fafb;
+      color: #374151;
+      font-weight: 700;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+    }
+    .meta-table td { padding: 8px 12px; border: 1px solid var(--border); }
+
+    .domains-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 14px 0 22px;
+    }
+    .domain-pill { border-radius: 10px; padding: 14px; border: 1px solid #cbd5e1; font-size: 13px; }
+    .d1 { background: #ecfdf5; border-color: #86efac; }
+    .d2 { background: #eff6ff; border-color: #93c5fd; }
+    .d3 { background: #fff7ed; border-color: #fdba74; }
+    .domain-pill strong { display: block; margin-bottom: 5px; font-size: 13.5px; }
+
+    .q-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      background: #fff;
+      scroll-margin-top: 76px;
+    }
+    .q-header {
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .q-title { font-weight: 700; font-size: 14.3px; color: #0f172a; }
+    .wc-badge {
+      background: var(--green-soft);
+      color: var(--green);
+      border: 1px solid #86efac;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 999px;
+    }
+    .q-body { padding: 14px 18px; font-size: 14.7px; }
+    .q-body p:last-child, .q-body ul:last-child { margin-bottom: 0; }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 20px;
+      font-size: 13.5px;
+    }
+    table.data-table thead th {
+      background: var(--primary);
+      color: #fff;
+      text-align: left;
+      padding: 10px 11px;
+      border: 1px solid var(--primary);
+    }
+    table.data-table td { padding: 9px 11px; border: 1px solid var(--border); vertical-align: top; }
+    table.data-table tbody tr:nth-child(even) { background: #f9fafb; }
+    table.data-table tr.total-row td {
+      background: var(--primary-soft);
+      font-weight: 800;
+      color: #0a3642;
+      border-top: 2px solid var(--primary);
+    }
+    .num { text-align: right; white-space: nowrap; }
+
+    .org-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 12px 0 18px;
+      font-size: 14.2px;
+    }
+
+    .script-card {
+      border-left: 4px solid var(--primary-light);
+      background: #f8fafc;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      border-radius: 0 8px 8px 0;
+    }
+    .script-time {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 960px) {
+      .layout { grid-template-columns: 1fr; padding: 0 12px; margin-top: 14px; }
+      .toc { position: static; padding: 14px; }
+      .paper { padding: 20px 16px; border-radius: 10px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .domains-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 20px; }
+      table.data-table, table.meta-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    }
+    @media (max-width: 560px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+    @media print {
+      body { background: #fff; font-size: 10.5pt; }
+      .toolbar, .toc { display: none !important; }
+      .layout { display: block; max-width: 100%; margin: 0; padding: 0; }
+      .paper { border: none; box-shadow: none; padding: 0; }
+      .q-card, table, .script-card, .org-box { page-break-inside: avoid; }
+      .part-banner, .stat-card, .wc-badge, .domain-pill, table.data-table thead th, .status-pill {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="toolbar-title">
+    <span class="badge-fund">Quỹ 2 · WHH / STF</span>
+    <span>Bản Tiếng Việt cho Team Review (Khớp 100% Bản Nộp Tiếng Anh)</span>
+  </div>
+  <div class="toolbar-actions">
+    <a class="btn" href="./index.html">← Trang tổng hợp</a>
+    <a class="btn btn-lang" href="./whh.html">🇬🇧 Xem bản Tiếng Anh (Copy nộp cổng)</a>
+    <button class="btn btn-primary" onclick="window.print()">🖨️ In / Xuất PDF (A4)</button>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="toc">
+    <h3>Mục lục hồ sơ (TV)</h3>
+    <div class="toc-divider">Thông tin &amp; 12 Câu trả lời Cổng</div>
+    <ol>
+      <li><a href="#org-profile">Hồ sơ Pháp nhân đăng ký</a></li>
+      <li><a href="#q1">1. Tên dự án (&lt;15 từ EN)</a></li>
+      <li><a href="#q2">2. Tóm tắt (&lt;75 từ EN)</a></li>
+      <li><a href="#q3">3. Giao điểm 3 Trụ cột</a></li>
+      <li><a href="#q4">4. Giai đoạn &amp; Mẫu thử</a></li>
+      <li><a href="#q5">5. Tính Đột phá Sáng tạo</a></li>
+      <li><a href="#q6">6. Đối tượng thụ hưởng &amp; SDGs</a></li>
+      <li><a href="#q7">7. Mục đích dùng vốn</a></li>
+      <li><a href="#q8">8. Rủi ro &amp; Giải pháp 12 tháng</a></li>
+      <li><a href="#q9">9. Nhân rộng &amp; Bền vững kinh tế</a></li>
+    </ol>
+    <div class="toc-divider">Kỹ thuật, Hồ sơ 1 trang &amp; Video</div>
+    <ol>
+      <li><a href="#sec-10">10. Thiết kế Thí điểm (45 ha)</a></li>
+      <li><a href="#sec-11">11. Kế hoạch 12 Tháng</a></li>
+      <li><a href="#sec-12">12. Ngân sách USD 25.000</a></li>
+      <li><a href="#sec-org">13. Hồ sơ Công ty &amp; Tài chính</a></li>
+      <li><a href="#sec-14">14. Kịch bản Video 3 phút</a></li>
+    </ol>
+    <div class="toc-note">
+      <strong>Lưu ý nộp cổng:</strong><br/>
+      Bản tiếng Việt dùng để team/thầy duyệt nội dung; khi dán lên cổng WHH (01/01–15/02/2027), dùng nút <strong>Copy</strong> bên bản Tiếng Anh đã kiểm đếm từ tự động.
+    </div>
+  </aside>
+
+  <main class="paper">
+    <div class="brand-bar">
+      <div class="brand-left">
+        <img src="./logo-mekong-green-ai.png" alt="Logo Mekong Green AI" class="brand-logo" onerror="this.style.display='none'" />
+        <div class="brand-meta">
+          <strong>Công ty TNHH Công nghệ Mekong Green AI</strong> (MEGATECH AI)<br/>
+          MST: 1602238040 · 183 Hà Huy Tập, P. Long Xuyên, An Giang · www.megatechaiag.com
+        </div>
+      </div>
+      <span class="status-pill">🇻🇳 Bản Tiếng Việt — Team Review</span>
+    </div>
+
+    <header class="doc-header">
+      <div class="eyebrow">Welthungerhilfe (WHH) &amp; Seeding The Future Foundation · Global Food System Challenge</div>
+      <h1>Mekong Rice AI: Tưới thông minh cấp HTX và Truy xuất lúa an toàn cho nông hộ nhỏ ĐBSCL</h1>
+      <p class="subtitle">Hạng mục mục tiêu: <strong>Seed Grant (USD 25.000)</strong> — Từ Mẫu thử phần mềm sang Kiểm chứng thực địa tại An Giang, Việt Nam</p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Hạng mục Quỹ</div>
+          <div class="stat-value">Seed Grant</div>
+          <div class="stat-sub">Đã có mẫu thử Coop360</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Đề nghị tài trợ</div>
+          <div class="stat-value">USD 25.000</div>
+          <div class="stat-sub">+ $8.000 đối ứng hiện vật</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Quy mô Kiểm chứng</div>
+          <div class="stat-value">45 ha · 36 hộ</div>
+          <div class="stat-sub">30 ha AWD vs. 15 ha Đối chứng</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Thời gian mở cổng</div>
+          <div class="stat-value">01/01 – 15/02/2027</div>
+          <div class="stat-sub">Thực hiện trong 12 tháng</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="domains-grid">
+      <div class="domain-pill d1">
+        <strong>1. Bền vững &amp; Tái tạo</strong>
+        AWD an toàn + FarmUAV: giảm 20–30% nước tưới, giảm 10–15% phân thuốc, giảm 30–40% CH<sub>4</sub> (đo đối chứng IPCC Tier 2).
+      </div>
+      <div class="domain-pill d2">
+        <strong>2. Thực phẩm An toàn &amp; Dinh dưỡng</strong>
+        Bộ cảnh báo PHI trên Coop360 chặn thu hoạch lúa chưa hết ngày cách ly thuốc BVTV + KCS + mã QR minh bạch.
+      </div>
+      <div class="domain-pill d3">
+        <strong>3. Công bằng, Giá hợp lý &amp; Niềm tin</strong>
+        Mô hình dùng chung cấp HTX (~$14/ha) tăng lãi nông dân 12–20% mà không làm tăng giá gạo bán lẻ cho người tiêu dùng.
+      </div>
+    </div>
+
+    <section id="org-profile">
+      <h2>Thông tin Pháp nhân Đăng ký Cổng WHH</h2>
+      <table class="meta-table">
+        <tr><th>Tên tổ chức đăng ký</th><td><strong>Công ty TNHH Công nghệ Mekong Green AI</strong> (<em>Mekong Green AI Technology Co., Ltd.</em>)</td></tr>
+        <tr><th>Loại hình tổ chức</th><td>Doanh nghiệp khởi nghiệp công nghệ vì mục tiêu tác động (Đại diện pháp luật là nữ)</td></tr>
+        <tr><th>Mã số doanh nghiệp / MST</th><td><code>1602238040</code> — Thành lập 28/10/2026 tại tỉnh An Giang, Việt Nam</td></tr>
+        <tr><th>Người đại diện ký hồ sơ</th><td><strong>Bà Nguyễn Thị Ngọc Bích</strong> (Giám đốc, Người đại diện pháp luật) · Chủ tịch HĐTV: <strong>Ông Đoàn Quân Bảo</strong></td></tr>
+        <tr><th>Địa chỉ trụ sở</th><td>183 Hà Huy Tập, phường Long Xuyên, tỉnh An Giang, Việt Nam</td></tr>
+        <tr><th>Liên hệ chính thức</th><td>Email: <code>contact@megatechaiag.com</code> · ĐT: <code>0367.533.230</code> / <code>0858.300.789</code> · Web: <a href="https://www.megatechaiag.com" target="_blank">www.megatechaiag.com</a></td></tr>
+      </table>
+    </section>
+
+    <div class="part-banner">Phần A — Dịch Nghĩa 12 Câu Trả Lời Trên Cổng WHH (Khớp Từng Ô Bản Tiếng Anh)</div>
+
+    <div class="q-card" id="q1">
+      <div class="q-header">
+        <span class="q-title">1. Tên dự án (Giới hạn tiếng Anh: &lt; 15 từ)</span>
+        <span class="wc-badge">Bản EN: 12 / 15 từ ✓</span>
+      </div>
+      <div class="q-body"><p><strong>Mekong Rice AI: Tưới thông minh cấp HTX và Truy xuất lúa an toàn cho nông hộ nhỏ ĐBSCL</strong></p></div>
+    </div>
+
+    <div class="q-card" id="q2">
+      <div class="q-header">
+        <span class="q-title">2. Tóm tắt Điều hành (Giới hạn tiếng Anh: &lt; 75 từ)</span>
+        <span class="wc-badge">Bản EN: 72 / 75 từ ✓</span>
+      </div>
+      <div class="q-body"><p>Mekong Rice AI tích hợp nền tảng quản trị HTX đã hoạt động của chúng tôi (<strong>MGA Coop360</strong>) với chẩn đoán trên không <strong>FarmUAV</strong> và giám sát tưới ngập khô xen kẽ (AWD) cho các HTX lúa tại An Giang, ĐBSCL. Trong 12 tháng, chúng tôi kiểm chứng mẫu thử trên 45 ha (30 ha AWD vs. 15 ha đối chứng) nhằm chứng minh tiết kiệm 20–30% nước, tuân thủ 100% ngày cách ly thuốc BVTV (PHI), giữ vững năng suất, tăng lợi nhuận ròng và truy xuất mã QR minh bạch.</p></div>
+    </div>
+
+    <div id="q3">
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-title">3A. Trụ cột 1 — Canh tác Bền vững &amp; Tái tạo (Giới hạn EN: &lt; 100 từ)</span>
+          <span class="wc-badge">Bản EN: 88 / 100 từ ✓</span>
+        </div>
+        <div class="q-body"><p>Ruộng lúa ngập liên tục tại ĐBSCL vừa lãng phí nước tưới vừa phát thải lượng lớn khí mê-tan (CH<sub>4</sub>) kèm rửa trôi hóa chất nông nghiệp. Mekong Rice AI kết hợp ống đo mực nước AWD chi phí thấp, cảm biến mực nước điểm chuẩn, cảnh báo thời tiết cục bộ trong MGA Coop360 và ảnh chụp stress cây trồng FarmUAV để hướng dẫn rút nước đúng lúc mà không giảm năng suất. Trên các lô thí điểm ghép cặp đối chứng tại An Giang, mẫu thử nhắm tới giảm 20–30% nước tưới, giảm 10–15% phân bón và thuốc BVTV, giảm thất thoát đồng ruộng nhờ phát hiện sớm sâu bệnh/hạn và giảm ước tính 30–40% CH<sub>4</sub> theo chuẩn IPCC Tier 2.</p></div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-title">3B. Trụ cột 2 — Thực phẩm An toàn &amp; Dinh dưỡng (Giới hạn EN: &lt; 100 từ)</span>
+          <span class="wc-badge">Bản EN: 91 / 100 từ ✓</span>
+        </div>
+        <div class="q-body"><p>Gạo là nguồn năng lượng hằng ngày chủ yếu của hơn 95 triệu người Việt Nam và hàng trăm triệu người Đông Nam Á, nên an toàn tồn dư hóa chất trong gạo đặc biệt quan trọng với sức khỏe cộng đồng. <strong>Bộ Cảnh báo Ngày Cách ly Thuốc BVTV (PHI Alert Engine)</strong> tích hợp sẵn trong MGA Coop360 tự động theo dõi từng lần phun thuốc ghi trong nhật ký điện tử và chặn cấp chứng nhận thu hoạch bằng cảnh báo Đỏ/Vàng/Xanh cho đến khi hết thời gian cách ly an toàn. Kết hợp kiểm định ẩm độ/chất lượng (KCS) và phun chính xác bằng FarmUAV, hệ thống cung cấp gạo sạch đạt chuẩn tồn dư kèm mã QR truy xuất từ ruộng đến người tiêu dùng.</p></div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-title">3C. Trụ cột 3 — Tiếp cận Công bằng, Giá hợp lý &amp; Niềm tin (Giới hạn EN: &lt; 100 từ)</span>
+          <span class="wc-badge">Bản EN: 83 / 100 từ ✓</span>
+        </div>
+        <div class="q-body"><p>Nông hộ nhỏ hiếm khi áp dụng canh tác bền vững nếu công cụ đắt đỏ hoặc người mua không tin sổ sách giấy. Mô hình dùng chung cấp HTX giúp chia sẻ chi phí phần mềm và UAV (~USD 14/ha/vụ), đồng thời cắt giảm tiền bơm nước và vật tư giúp lợi nhuận ròng của hộ tăng 12–20% <em>mà không làm tăng giá bán lẻ gạo</em>. Người tiêu dùng và nhà máy xay xát chỉ cần quét mã QR theo từng lô trên Coop360 để kiểm tra ngày cách ly thuốc an toàn, quy trình tiết kiệm nước và kết quả KCS — giúp gạo sạch, bền vững vừa hợp túi tiền vừa tạo niềm tin rõ ràng.</p></div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-title">3D. Ngăn chặn Tác động Phụ Tiêu cực giữa các Trụ cột (Giới hạn EN: &lt; 100 từ)</span>
+          <span class="wc-badge">Bản EN: 91 / 100 từ ✓</span>
+        </div>
+        <div class="q-body"><p>Tiết kiệm nước thiếu kiểm soát có thể gây cỏ dại, thiếu ẩm hoặc giảm năng suất, ảnh hưởng thu nhập nông dân và giá lương thực. Mekong Rice AI khắc phục bằng quy trình "AWD An toàn" — giữ nước trong giai đoạn nảy mầm và trổ bông nhạy cảm — kết hợp ảnh FarmUAV phát hiện stress sớm và nhóm đối chứng ngập liên tục trong cùng ô bao. Nếu năng suất hoặc lợi nhuận có dấu hiệu thấp hơn đối chứng, ngưỡng tưới được hiệu chỉnh ngay. Đồng thời, cảnh báo PHI tự động ngăn nông dân phun thuốc muộn sai quy định để đối phó cỏ/sâu bệnh, bảo vệ đồng thời an toàn thực phẩm và hệ sinh thái.</p></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q4">
+      <div class="q-header">
+        <span class="q-title">4. Giai đoạn Phát triển &amp; Bằng chứng Mẫu thử (Giới hạn EN: &lt; 100 từ)</span>
+        <span class="wc-badge">Bản EN: 92 / 100 từ ✓</span>
+      </div>
+      <div class="q-body"><p>Chúng tôi đã vượt qua giai đoạn ý tưởng với <strong>mẫu thử phần mềm Full-Stack đang hoạt động (MGA Coop360)</strong> trên nền Next.js, Spring Boot và PostgreSQL, gồm 11 mô-đun vận hành thực tế: quản lý hộ/bản đồ GPS, kế hoạch mùa vụ, nhật ký di động offline, kho vật tư, cảnh báo cách ly thuốc PHI tự động, mã lô thu hoạch, kiểm định KCS, truy xuất QR, thời tiết 7 ngày Open-Meteo và đặt dịch vụ drone (<code>UC-11</code>). Khoản Seed Grant này tài trợ tích hợp giám sát mực nước AWD chuyên cho lúa, bản đồ stress FarmUAV và thử nghiệm đối chứng đầu tiên trên 45 ha tại An Giang đo nước, năng suất, lợi nhuận và giảm phát thải.</p></div>
+    </div>
+
+    <div class="q-card" id="q5">
+      <div class="q-header">
+        <span class="q-title">5. Mức độ Đổi mới Sáng tạo — Điểm Đột phá (Giới hạn EN: &lt; 100 từ)</span>
+        <span class="wc-badge">Bản EN: 89 / 100 từ ✓</span>
+      </div>
+      <div class="q-body"><p>Các giải pháp công nghệ lúa hiện nay thường thất bại với nông hộ nhỏ vì bị phân mảnh thành thiết bị IoT rời đắt đỏ, kiểm toán carbon trên giấy thiếu tin cậy hoặc phần mềm chỉ dành cho tập đoàn lớn. Điểm đột phá của Mekong Rice AI là hợp nhất <strong>quản trị ERP hằng ngày của HTX, kiểm soát an toàn thực phẩm PHI tự động, chẩn đoán FarmUAV dùng chung và đo lường nước–lợi nhuận–phát thải AWD có đối chứng</strong> trong một quy trình di động chi phí thấp. Thay vì bán cho nông dân một ứng dụng "carbon trừu tượng", chúng tôi nhúng tưới thông minh và an toàn thực phẩm vào chính công cụ HTX dùng mỗi ngày.</p></div>
+    </div>
+
+    <div class="q-card" id="q6">
+      <div class="q-header">
+        <span class="q-title">6. Đối tượng Thụ hưởng, Địa bàn &amp; Mục tiêu SDGs (Giới hạn EN: &lt; 100 từ)</span>
+        <span class="wc-badge">Bản EN: 87 / 100 từ ✓</span>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li><strong>Thụ hưởng trực tiếp:</strong> <strong>36 hộ nông dân trồng lúa quy mô nhỏ</strong> (&ge;35% phụ nữ đồng quản lý) canh tác <strong>45 ha</strong> trong 1 HTX ô bao khép kín tại <strong>tỉnh An Giang, Việt Nam</strong> trong 12 tháng, mở rộng lên 1.500+ hộ tại các HTX ĐBSCL sau kiểm chứng.</li>
+          <li><strong>Thụ hưởng gián tiếp:</strong> Nhà máy xay xát địa phương, Ban quản lý HTX và người tiêu dùng thu nhập thấp–trung bình được tiếp cận gạo sạch an toàn với giá hợp lý.</li>
+          <li><strong>Mục tiêu SDGs:</strong> <strong>SDG 2</strong> (Nông nghiệp bền vững), <strong>SDG 6</strong> (Hiệu quả nguồn nước), <strong>SDG 12</strong> (Sản xuất có trách nhiệm &amp; An toàn thực phẩm), <strong>SDG 13</strong> (Hành động khí hậu / Giảm CH<sub>4</sub>).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card" id="q7">
+      <div class="q-header">
+        <span class="q-title">7. Mục đích Sử dụng Vốn &amp; Điều gì xảy ra nếu Không được tài trợ (Giới hạn EN: &lt; 100 từ)</span>
+        <span class="wc-badge">Bản EN: 89 / 100 từ ✓</span>
+      </div>
+      <div class="q-body"><p>Khoản Seed Grant $25.000 tài trợ trực tiếp cho: (1) bổ sung mô-đun cảnh báo nước AWD, sổ lợi nhuận hộ và ước tính CH<sub>4</sub> IPCC Tier 2 vào mẫu thử Coop360 hiện có; (2) lắp đặt ống AWD, 8 cảm biến mực nước, đồng hồ bơm và thực hiện 4 đợt bay khảo sát FarmUAV trên 45 ha lô thí điểm/đối chứng tại An Giang; và (3) tập huấn nông dân kèm gặt mẫu, kiểm chứng lợi nhuận độc lập. <strong>Nếu không có khoản tài trợ này</strong>, doanh nghiệp mới thành lập của chúng tôi không đủ nguồn lực đầu tư cảm biến, bay UAV và kiểm chứng thực địa — khiến Coop360 chỉ dừng ở bản demo phần mềm, chưa có bằng chứng thực địa để gọi vốn mở rộng.</p></div>
+    </div>
+
+    <div class="q-card" id="q8">
+      <div class="q-header">
+        <span class="q-title">8. Rủi ro Chính &amp; Biện pháp Giảm thiểu trong 12 Tháng tới (Giới hạn EN: &lt; 100 từ)</span>
+        <span class="wc-badge">Bản EN: 85 / 100 từ ✓</span>
+      </div>
+      <div class="q-body"><p>Ba rủi ro trọng tâm trong 12 tháng tại An Giang: (1) <strong>Nông dân lo giảm năng suất khi rút nước</strong> — khắc phục bằng quy tắc AWD An toàn, ống quan sát trực quan và cảnh báo stress sớm từ FarmUAV; (2) <strong>Nông dân lớn tuổi hạn chế kỹ năng số</strong> — khắc phục bằng 3 thanh niên "hạt nhân số" tại HTX, giao diện PWA offline đơn giản và tin nhắn Zalo/SMS; (3) <strong>Mưa trái mùa hoặc biến động thủy văn ĐBSCL</strong> — khắc phục bằng việc bố trí 30 ha thí điểm và 15 ha đối chứng trong cùng một ô bao khép kín để tách bạch tác động thời tiết khỏi hiệu quả công nghệ.</p></div>
+    </div>
+
+    <div class="q-card" id="q9">
+      <div class="q-header">
+        <span class="q-title">9. Khả năng Nhân rộng &amp; Tính Bền vững Kinh tế Dài hạn (Giới hạn EN: &lt; 100 từ)</span>
+        <span class="wc-badge">Bản EN: 88 / 100 từ ✓</span>
+      </div>
+      <div class="q-body"><p><em>Đề án 1 triệu ha lúa chất lượng cao, phát thải thấp</em> của Việt Nam tạo nhu cầu thể chế tức thì tại hàng trăm HTX ĐBSCL, khởi đầu ngay tại An Giang — vựa lúa lớn nhất cả nước. Do Mekong Rice AI giúp nông dân tiết kiệm chi phí và tăng thu nhập ước tính USD 100–160/ha/vụ, HTX hoàn toàn tự duy trì hệ thống sau tài trợ qua gói phí dịch vụ phần mềm &amp; UAV dùng chung chỉ USD 14/ha/vụ, cộng thêm phí API truy xuất từ doanh nghiệp xuất khẩu gạo. Sau khi có dữ liệu đối chứng 12 tháng, chúng tôi sẽ tiếp tục nộp WHH Growth Grant và FID/DIV để nhân rộng ra Đông Nam Á.</p></div>
+    </div>
+
+    <div class="part-banner">Phần B — Thiết kế Thí điểm, Kế hoạch 12 Tháng &amp; Ngân sách USD 25.000</div>
+
+    <section id="sec-10">
+      <h2>10. Thiết kế Thí điểm Có Đối chứng (45 ha · 1 Vụ Trọn vẹn tại An Giang)</h2>
+      <ul>
+        <li><strong>Lô Thí điểm (30 ha; ~24 hộ):</strong> Trọn gói Mekong Rice AI — nhật ký di động Coop360 + 60 ống AWD PVC &amp; 8 cảm biến siêu âm mực nước + cảnh báo Zalo/app theo thời tiết + khóa kiểm soát cách ly thuốc PHI tự động + 4 đợt bay FarmUAV RGB/đa phổ.</li>
+        <li><strong>Lô Đối chứng (15 ha; ~12 hộ):</strong> Cùng giống lúa (OM18 / Đài Thơm 8), cùng tuần gieo sạ, cùng đất phù sa và cùng ô bao thủy lợi nhưng tưới ngập liên tục theo tập quán cũ; đo đồng bộ điện năng bơm, hóa đơn vật tư và gặt mẫu năng suất.</li>
+        <li><strong>4 Kết quả Kiểm chứng:</strong> (1) Lượng nước tưới (m&sup3;/ha &amp; chi phí bơm), (2) Năng suất quy chuẩn 14% ẩm độ, (3) Lợi nhuận ròng hộ đối soát chứng từ, và (4) Ước tính giảm CH<sub>4</sub> chuẩn IPCC Tier 2 + kiểm toán 100% tuân thủ PHI + khảo sát niềm tin quét mã QR của người mua/tiêu dùng.</li>
+      </ul>
+    </section>
+
+    <section id="sec-11">
+      <h2>11. Kế hoạch Triển khai 12 Tháng (4 Quý)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th style="width:18%;">Quý</th><th style="width:24%;">Trọng tâm</th><th style="width:58%;">Hoạt động &amp; Sản phẩm bàn giao</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Quý 1</strong><br/>Tháng 1–3</td><td><strong>Tích hợp Mẫu thử &amp; Lắp đặt</strong></td><td>Hoàn tất MoU HTX tại An Giang; số hóa bản đồ GPS 45 ha (30T/15ĐC) trên Coop360; xây dựng mô-đun cảnh báo AWD, sổ lợi nhuận &amp; IPCC Tier 2; lắp 60 ống AWD, 8 cảm biến mực nước &amp; đồng hồ bơm; khảo sát nền.</td></tr>
+          <tr><td><strong>Quý 2</strong><br/>Tháng 4–6</td><td><strong>Tập huấn &amp; Khởi động Vụ</strong></td><td>Tập huấn 36 hộ (&ge;35% nữ) + 3 thanh niên số về AWD An toàn, nhật ký Coop360 &amp; cảnh báo PHI; khởi động vụ đối chứng; thực hiện bay FarmUAV Đợt 1 &amp; Đợt 2.</td></tr>
+          <tr><td><strong>Quý 3</strong><br/>Tháng 7–9</td><td><strong>Giám sát, Khóa PHI &amp; Thu hoạch</strong></td><td>Bay FarmUAV Đợt 3 &amp; Đợt 4; kích hoạt kiểm soát ngày cách ly PHI trước thu hoạch; gặt mẫu độc lập, đo ẩm độ KCS, cân nhà máy, dán tem QR lô lúa &amp; khảo sát niềm tin QR.</td></tr>
+          <tr><td><strong>Quý 4</strong><br/>Tháng 10–12</td><td><strong>Đánh giá &amp; Chuẩn bị Mở rộng</strong></td><td>Kiểm toán bộ dữ liệu đối chứng (Nước, Năng suất, Lãi ròng, CH<sub>4</sub>, PHI); khảo sát sẵn sàng trả phí USD 14/ha cho Vụ 2; phát hành Báo cáo Kiểm chứng Thực địa &amp; chuẩn bị hồ sơ WHH Growth Grant / FID / DIV.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="sec-12">
+      <h2>12. Dự toán Ngân sách Seed Grant (USD 25.000)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th style="width:28%;">Hạng mục</th><th class="num" style="width:14%;">USD</th><th class="num" style="width:10%;">Tỷ trọng</th><th style="width:48%;">Phân bổ chi tiết</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>1. Tùy biến Mẫu thử Phần mềm</strong></td><td class="num">$6.500</td><td class="num">26%</td><td>Bộ cảnh báo AWD, sổ lợi nhuận hộ, tính IPCC Tier 2, cầu Zalo/SMS, xem bản đồ NDVI FarmUAV, máy chủ cloud 12 tháng. <em>(Mã nguồn lõi Coop360 đóng góp đối ứng).</em></td></tr>
+          <tr><td><strong>2. Thiết bị AWD, Cảm biến &amp; Đồng hồ</strong></td><td class="num">$5.000</td><td class="num">20%</td><td>60 ống PVC AWD ($300), 8 cảm biến mực nước siêu âm pin mặt trời/4G ($3.200), 2–4 đồng hồ kWh/lưu lượng bơm ($1.000), hộp bảo vệ &amp; lắp đặt ($500).</td></tr>
+          <tr><td><strong>3. Bay chụp &amp; Xử lý ảnh FarmUAV</strong></td><td class="num">$4.000</td><td class="num">16%</td><td>4 đợt bay khảo sát RGB/đa phổ trên 45 ha + xử lý ảnh trực giao/bản đồ stress NDVI + hỗ trợ trình diễn phun chính xác.</td></tr>
+          <tr><td><strong>4. Tập huấn HTX &amp; Cán bộ thực địa</strong></td><td class="num">$5.000</td><td class="num">20%</td><td>Kỹ sư nông nghiệp bám ruộng tại An Giang ($2.800), phụ cấp 3 thanh niên số ($900), 3 lớp tập huấn đồng ruộng &amp; tài liệu hình ảnh AWD/PHI ($1.300).</td></tr>
+          <tr><td><strong>5. Kiểm chứng độc lập &amp; KCS/QR</strong></td><td class="num">$3.000</td><td class="num">12%</td><td>Cố vấn nông học độc lập (ĐH An Giang / khuyến nông), dụng cụ đo ẩm độ KCS, in tem QR lô thí điểm, khảo sát niềm tin người mua/tiêu dùng.</td></tr>
+          <tr><td><strong>6. Hành chính, Báo cáo &amp; Dự phòng</strong></td><td class="num">$1.500</td><td class="num">6%</td><td>Báo cáo tài chính theo chuẩn quỹ, công tác phí địa bàn An Giang và dự phòng thực địa 5%.</td></tr>
+          <tr class="total-row">
+            <td>TỔNG ĐỀ NGHỊ SEED GRANT</td><td class="num">$25.000</td><td class="num">100%</td><td>Cộng ~$8.000 đối ứng hiện vật (IP Coop360, nhân lực công ty, cơ sở HTX)</td></tr>
+          </tbody>
+      </table>
+    </section>
+
+    <div class="part-banner">Phần C &amp; D — Hồ sơ Năng lực &amp; Tài chính 1 Trang + Kịch bản Video 3 Phút</div>
+
+    <section id="sec-org">
+      <h2>13. Bản 1 Trang Giới thiệu Công ty, Mô hình Kinh doanh &amp; Tài chính (Tài liệu đính kèm Cổng WHH)</h2>
+      <div class="org-box">
+        <p><strong>Công ty TNHH Công nghệ Mekong Green AI</strong> (MST: <code>1602238040</code>; đăng ký lần đầu ngày 28/10/2026) là doanh nghiệp công nghệ định hướng tác động xã hội có đại diện pháp luật là nữ, trụ sở tại <strong>183 Hà Huy Tập, phường Long Xuyên, tỉnh An Giang</strong> (<code>www.megatechaiag.com</code> | <code>contact@megatechaiag.com</code>). Dưới sự lãnh đạo của Giám đốc <strong>Bà Nguyễn Thị Ngọc Bích</strong> và Chủ tịch HĐTV <strong>Ông Đoàn Quân Bảo</strong>, sứ mệnh của công ty là cung cấp các giải pháp AI, IoT và truy xuất nguồn gốc chi phí hợp lý cho HTX và doanh nghiệp nhỏ tại ĐBSCL nhằm nâng thu nhập nông hộ đồng thời giảm lãng phí nước, tồn dư hóa chất và phát thải khí nhà kính.</p>
+        <p><strong>Mô hình Kinh doanh:</strong> Hệ sinh thái sản phẩm mô-đun — trọng tâm là <strong>MGA Coop360</strong>, <strong>MGA SmartRice</strong>, <strong>MGA TraceHub</strong> và <strong>MGA MicroBiz ERP</strong> — tạo doanh thu định kỳ qua gói phí SaaS + FarmUAV dùng chung cho HTX (~USD 14/ha/vụ) và phí API truy xuất nguồn gốc B2B cho doanh nghiệp xuất khẩu gạo.</p>
+        <p style="margin-bottom:0;"><strong>Tuyên bố Sẵn sàng Tài chính &amp; Tuân thủ:</strong> Thành lập tháng 10/2026, không có nợ vay bên ngoài, sở hữu tài sản phần mềm sạch và chi phí vận hành địa phương tinh gọn. Do hoạt động dưới 12 tháng, công ty lưu giữ đầy đủ hồ sơ kế toán chuẩn Việt Nam, giấy tờ vốn điều lệ và bảng cân đối mở sổ phục vụ thẩm định WHH; đồng thời cam kết quản lý khoản tài trợ qua tài khoản dự án tách biệt với báo cáo tài chính minh bạch theo quý.</p>
+      </div>
+    </section>
+
+    <section id="sec-14">
+      <h2>14. Kịch bản Video Pitch 3 Phút (Chuẩn bị sẵn cho Vòng Finalist)</h2>
+      <div class="script-card">
+        <div class="script-time">[0:00–0:30] Mở đầu — Hình ảnh: Cánh đồng lúa An Giang &amp; trạm bơm nước</div>
+        <p style="margin:0;">“Mỗi bát cơm tại Đông Nam Á bắt đầu từ những cánh đồng như thế này ở An Giang — trái tim của Đồng bằng sông Cửu Long. Hiện nay, tập quán tưới ngập liên tục làm lãng phí tới 30% lượng nước, phát thải lượng lớn khí mê-tan và bóp nghẹt nông dân bởi chi phí nhiên liệu, phân thuốc — trong khi các gia đình vẫn lo lắng về tồn dư thuốc bảo vệ thực vật trong bữa ăn hằng ngày.”</p>
+      </div>
+      <div class="script-card">
+        <div class="script-time">[0:30–1:15] Giải pháp — Hình ảnh: Quay màn hình app MGA Coop360 + Drone FarmUAV bay trên ruộng</div>
+        <p style="margin:0;">“Xin giới thiệu <strong>Mekong Rice AI</strong> do Mekong Green AI phát triển ngay tại An Giang. Thay vì bán cho nông dân những thiết bị carbon rời đắt đỏ, chúng tôi kết hợp nền tảng quản trị HTX đã chạy thực tế — <strong>MGA Coop360</strong> — với ảnh bay <strong>FarmUAV</strong> và ống đo mực nước đơn giản. Nông dân nhận cảnh báo thời tiết và lịch tưới AWD bằng tiếng Việt dễ hiểu ngay trên điện thoại, thấy sớm vùng lúa bị stress qua ảnh drone và có khóa cảnh báo ngày cách ly PHI tự động chặn thu hoạch mất an toàn — tất cả gắn liền một mã QR quét kiểm chứng.”</p>
+      </div>
+      <div class="script-card">
+        <div class="script-time">[1:15–2:05] Tác động 3 Trụ cột — Hình ảnh: Đồ họa 3 vòng tròn giao nhau</div>
+        <p style="margin:0;">“Giải pháp chạm trọn cả 3 trụ cột của Seeding The Future: <strong>Thứ nhất, bền vững</strong> — giảm 20 đến 30% nước và 30 đến 40% khí mê-tan, đo đối chứng trực tiếp với ruộng ngập truyền thống. <strong>Thứ hai, thực phẩm an toàn</strong> — khóa cách ly PHI tự động đảm bảo gạo đạt chuẩn không tồn dư thuốc. <strong>Thứ ba, công bằng và hợp túi tiền</strong> — chia sẻ chi phí ở cấp HTX giúp tăng lợi nhuận hộ 12 đến 20% mà không làm tăng giá bán lẻ gạo.”</p>
+      </div>
+      <div class="script-card">
+        <div class="script-time">[2:05–2:45] Vai trò Seed Grant — Hình ảnh: Ban Giám đốc &amp; nông dân HTX An Giang</div>
+        <p style="margin:0;">“Mẫu thử phần mềm Coop360 đã hoạt động với 11 mô-đun nghiệp vụ. Khoản tài trợ Seed Grant $25.000 sẽ giúp chúng tôi triển khai thử nghiệm đối chứng 12 tháng trên 45 ha và 36 hộ tại An Giang — chứng minh nước tiết kiệm, năng suất giữ vững, lợi nhuận tăng và khí mê-tan giảm.”</p>
+      </div>
+      <div class="script-card">
+        <div class="script-time">[2:45–3:00] Kết — Hình ảnh: Đội ngũ &amp; Logo Mekong Green AI</div>
+        <p style="margin:0;">“Hãy đồng hành cùng chúng tôi chứng minh rằng hạt gạo phát thải thấp, an toàn tồn dư cũng chính là hạt gạo mang lại lợi nhuận cao nhất cho nông hộ nhỏ ĐBSCL. Xin cảm ơn.”</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+</body>
+</html>
